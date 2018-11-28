@@ -10,10 +10,12 @@ class table
 public:
     table();
     table(const table &examp);
-    friend unsigned int hash(string s);
+    void add(string codon);
+    friend unsigned int hash2(string s);
+   // friend unsigned int hash(int i);
 
 };
-unsigned int hash(string s)
+unsigned int hash2(string s)
 {
     unsigned int k = 0;
     int i;
