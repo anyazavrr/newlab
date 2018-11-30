@@ -35,6 +35,15 @@ int main()
     table <char> test;
     char obj = 'k';
     test.add(obj);
+    char t = test.getvalue(0);
+    cout<<t;
+    table <int> test2;
+    test2.add(5);
+    test2.add(3);
+    test2.add(9);
+    int i;
+    for(i = 0; i<3;i++)
+        cout<<test2.getvalue(i)<<"\n";
     return 0;
 }
 

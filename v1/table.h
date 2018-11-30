@@ -11,7 +11,8 @@ class table
 public:
     table();
     table(const table &examp);
-    void add(const T examp);
+    void add(T examp);
+    T getvalue(int i) const;
 
 
 };

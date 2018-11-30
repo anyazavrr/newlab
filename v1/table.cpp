@@ -20,14 +20,22 @@ table<T>::table(const table &examp)
 
 }
 template <typename T>
-void table<T>::add(const T examp)
+void table<T>::add( T examp)
 {
     int i = 0;
     while (i<=100 && list[i]!=NULL) i++;
     if(i<=100 && list[i]==NULL)
     {
-        *(list[i]) = examp;
+        T* p = new T;
+        *p = examp;
+        list[i] = p;
     }
 
 }
+template <typename T>
+T table<T>::getvalue(int i) const
+{
+    return *(list[i]);
+}
 template class table<char>;
+template class table<int>;
