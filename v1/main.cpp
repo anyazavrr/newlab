@@ -1,5 +1,6 @@
 #include <iostream>
 #include "table.h"
+#include <iomanip>
 using namespace std;
 
 unsigned int hash(string s)
@@ -31,7 +32,7 @@ unsigned int hash(string s)
 int main()
 {
     cout << "Hello World!" << endl;
-    table<char> test;
+    table <char> test;
     char obj = 'k';
     test.add(obj);
     return 0;

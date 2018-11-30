@@ -2,6 +2,7 @@
 #define TABLE_H
 #include <string>
 #include <math.h>
+#include <iomanip>
 using namespace std;
 template <typename T>
 class table
@@ -10,7 +11,7 @@ class table
 public:
     table();
     table(const table &examp);
-    void add(const T &obj);
+    void add(const T examp);
 
 
 };

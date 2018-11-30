@@ -31,3 +31,4 @@ void table<T>::add(const T examp)
 
 }
 template class table<char>;
+template class table<int>;
