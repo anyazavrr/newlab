@@ -43,6 +43,13 @@ int main()
     int i;
     for(i = 0; i<3;i++)
         cout<<test2.getvalue(i)<< "\n";
+    cout<<"all "<<test2.count();
+    test2.deletekey(7);
+    cout<<"del\n";
+    for(i = 0; i<2;i++)
+        cout<<test2.getvalue(i)<< "\n";
+    cout<<"after"<<test2.count();
+
     return 0;
 }
 

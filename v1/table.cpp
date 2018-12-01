@@ -9,6 +9,7 @@ table<T>::table()
         list[i] = NULL;
     }
 }
+
 template <typename T>
 table<T>::table(const table &examp)
 {
@@ -19,6 +20,7 @@ table<T>::table(const table &examp)
     }
 
 }
+
 template <typename T>
 void table<T>::add( const T &value, int key2)
 {
@@ -31,32 +33,70 @@ void table<T>::add( const T &value, int key2)
     }
 
 }
+
 template <typename T>
 void table<T>::deletekey(int hash)
 {
+    cout<<"del\n";
     bool mainflag = false;
     while (mainflag==false)
     {
-        mainflag == true;
+        cout<<"in\n";
+        mainflag = true;
         bool flag = false;
         int i = 0;
         while(flag == false && i<=100  && list[i]!= NULL)
         {
             if(list[i]->getkey()==hash) flag =true ;
             i++;
+
         }
         if (flag == true)
         {
             i--;
+            cout<<"true\n";
             mainflag == false;
             while(i<=100 && list[i]!=NULL)
             {
                 list[i] = list[i+1];
                 i++;
             }
+
         }
     }
 
+}
+
+/*template <typename T>
+Iterator<T> table<T>::getbegin() const
+{
+
+}
+*/
+
+template <typename T>
+void table<T>::deleteall()
+{
+    int i = 0;
+    while(i<=100 && list[i]!= NULL)
+    {
+        delete(list[i]);
+        list[i] = NULL;
+        i++;
+    }
+}
+
+template <typename T>
+int table<T>::count() const
+{
+    int i = 0;
+    int amount = 0;
+    while(i<=100 && list[i]!= NULL)
+    {
+        amount++;
+        i++;
+    }
+    return amount;
 }
 
 template <typename T>
@@ -65,6 +105,7 @@ T table<T>::getvalue(int i) const
     T value = list[i]->getvalue();
     return value;
 }
+
 template <typename T>
 bool table<T>::check_key(int hash) const
 {
@@ -77,6 +118,7 @@ bool table<T>::check_key(int hash) const
     }
     return flag;
 }
+
 template <typename T>
 Iterator<T>::Iterator()
 {
@@ -94,11 +136,13 @@ Iterator<T> &Iterator<T>::operator++()
     }
     return curr;
 }
+
 template <typename T>
 int Iterator<T> ::getkey() const
 {
     return curr->getkey();
 }
+
 template <typename T>
 T Iterator<T> ::getvalue() const
 {

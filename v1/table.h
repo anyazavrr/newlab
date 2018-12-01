@@ -32,6 +32,9 @@ public:
     T getvalue(int i) const;
     bool check_key(int hash) const;
     void deletekey(int hash);
+    void deleteall();
+    int count() const;
+    Iterator<T> getbegin() const;
     friend class Iterator<T>;
 
 
