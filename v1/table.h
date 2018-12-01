@@ -37,6 +37,7 @@ public:
     Iterator<T> getbegin() const;
     friend class Iterator<T>;
     bool operator ==(const table<T> &other);
+    T operator [](int hash);
 
 
 };

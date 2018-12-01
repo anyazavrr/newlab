@@ -115,6 +115,7 @@ bool table<T>::check_key(int hash) const
     {
         if (list[i]->getkey()==hash)
             flag = true;
+        i++;
     }
     return flag;
 }
@@ -157,11 +158,23 @@ bool table<T>::operator ==(const table<T> &other)
     {
         if(list[i]->getkey()!=other.list[i]->getkey() || list[i]->getvalue()!=other.list[i]->getvalue())
             flag = false;
+        i++;
     }
     if (flag == false) return flag;
     else if ((flag == true && i>100) || (flag == true && list[i]==NULL && other.list[i]==NULL))
         return flag;
     else return false;
+}
+template <typename T>
+T table<T>::operator [](int hash)
+{
+    int i = 0;
+    while(list[i]!=NULL && i<=100)
+    {
+        if (list[i]->getkey()==hash)
+            return list[i]->getvalue();
+        i++;
+    }
 }
 
 template class table<char>;
