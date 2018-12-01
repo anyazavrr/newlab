@@ -148,6 +148,21 @@ T Iterator<T> ::getvalue() const
 {
     return curr->getvalue();
 }
+template <typename T>
+bool table<T>::operator ==(const table<T> &other)
+{
+    bool flag = true;
+    int i = 0;
+    while(i<=100 && list[i]!=NULL && other.list[i]!=NULL)
+    {
+        if(list[i]->getkey()!=other.list[i]->getkey() || list[i]->getvalue()!=other.list[i]->getvalue())
+            flag = false;
+    }
+    if (flag == false) return flag;
+    else if ((flag == true && i>100) || (flag == true && list[i]==NULL && other.list[i]==NULL))
+        return flag;
+    else return false;
+}
 
 template class table<char>;
 template class table<int>;

@@ -36,6 +36,7 @@ public:
     int count() const;
     Iterator<T> getbegin() const;
     friend class Iterator<T>;
+    bool operator ==(const table<T> &other);
 
 
 };

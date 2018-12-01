@@ -48,8 +48,9 @@ int main()
     cout<<"del\n";
     for(i = 0; i<2;i++)
         cout<<test2.getvalue(i)<< "\n";
-    cout<<"after"<<test2.count();
-
+    cout<<"after "<<test2.count();
+    test2.deleteall();
+    cout<<"\nall del "<<test2.count();
     return 0;
 }
 
