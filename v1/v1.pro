@@ -3,8 +3,10 @@ CONFIG += console
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    table.cpp
+    table.cpp \
+    entery.cpp
 
 HEADERS += \
-    table.h
+    table.h \
+    entery.h
 

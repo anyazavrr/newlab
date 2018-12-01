@@ -3,16 +3,34 @@
 #include <string>
 #include <math.h>
 #include <iomanip>
+#include "entery.h"
 using namespace std;
+template <typename T>
+class Iterator
+{
+public:
+    Iterator();
+
+    Iterator &operator++();
+    Iterator &operator--();
+    int getkey() const;
+    T getvalue() const;
+
+private:
+    entery<T> *curr;
+    int position;
+};
+
 template <typename T>
 class table
 {
-    T* list[100] ;
+    entery<T>*  list[100];
 public:
     table();
     table(const table &examp);
-    void add(T examp);
+    void add(const T &value, int key2);
     T getvalue(int i) const;
+    friend class Iterator<T>;
 
 
 };

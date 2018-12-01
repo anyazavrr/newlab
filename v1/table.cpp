@@ -20,14 +20,13 @@ table<T>::table(const table &examp)
 
 }
 template <typename T>
-void table<T>::add( T examp)
+void table<T>::add( const T &value, int key2)
 {
     int i = 0;
     while (i<=100 && list[i]!=NULL) i++;
     if(i<=100 && list[i]==NULL)
     {
-        T* p = new T;
-        *p = examp;
+        entery<T>* p = new entery<T>(value, key2);
         list[i] = p;
     }
 
@@ -35,7 +34,36 @@ void table<T>::add( T examp)
 template <typename T>
 T table<T>::getvalue(int i) const
 {
-    return *(list[i]);
+    T value = list[i]->getvalue();
+    return value;
 }
+template <typename T>
+Iterator<T>::Iterator()
+{
+    curr = NULL;
+    position = -1;
+}
+
+template <typename T>
+Iterator<T> &Iterator<T>::operator++()
+{
+    if (curr !=NULL && position!=100)
+    {
+        position = position + 1;
+        curr = curr +1;
+    }
+    return curr;
+}
+template <typename T>
+int Iterator<T> ::getkey() const
+{
+    return curr->getkey();
+}
+template <typename T>
+T Iterator<T> ::getvalue() const
+{
+    return curr->getvalue();
+}
+
 template class table<char>;
 template class table<int>;

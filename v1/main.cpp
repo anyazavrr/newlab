@@ -31,19 +31,18 @@ unsigned int hash(string s)
 }
 int main()
 {
-    cout << "Hello World!" << endl;
     table <char> test;
     char obj = 'k';
-    test.add(obj);
+    test.add(obj, 5);
     char t = test.getvalue(0);
-    cout<<t;
+    cout<<t<<"\n";
     table <int> test2;
-    test2.add(5);
-    test2.add(3);
-    test2.add(9);
+    test2.add(5,8);
+    test2.add(3, 7);
+    test2.add(9, 0);
     int i;
     for(i = 0; i<3;i++)
-        cout<<test2.getvalue(i)<<"\n";
+        cout<<test2.getvalue(i)<< "\n";
     return 0;
 }
 
