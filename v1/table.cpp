@@ -32,10 +32,50 @@ void table<T>::add( const T &value, int key2)
 
 }
 template <typename T>
+void table<T>::deletekey(int hash)
+{
+    bool mainflag = false;
+    while (mainflag==false)
+    {
+        mainflag == true;
+        bool flag = false;
+        int i = 0;
+        while(flag == false && i<=100  && list[i]!= NULL)
+        {
+            if(list[i]->getkey()==hash) flag =true ;
+            i++;
+        }
+        if (flag == true)
+        {
+            i--;
+            mainflag == false;
+            while(i<=100 && list[i]!=NULL)
+            {
+                list[i] = list[i+1];
+                i++;
+            }
+        }
+    }
+
+}
+
+template <typename T>
 T table<T>::getvalue(int i) const
 {
     T value = list[i]->getvalue();
     return value;
+}
+template <typename T>
+bool table<T>::check_key(int hash) const
+{
+    int i = 0;
+    bool flag = false;
+    while(list[i]!=NULL && i<=100)
+    {
+        if (list[i]->getkey()==hash)
+            flag = true;
+    }
+    return flag;
 }
 template <typename T>
 Iterator<T>::Iterator()

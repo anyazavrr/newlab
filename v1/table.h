@@ -30,6 +30,8 @@ public:
     table(const table &examp);
     void add(const T &value, int key2);
     T getvalue(int i) const;
+    bool check_key(int hash) const;
+    void deletekey(int hash);
     friend class Iterator<T>;
 
 
