@@ -174,7 +174,7 @@ T table<T>::operator [](int hash)
         if (list[i]->getkey()==hash)
             return list[i]->getvalue();
         i++;
-    }
+    }///что возвращать?
 }
 
 template class table<char>;

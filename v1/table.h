@@ -28,7 +28,7 @@ class table
 public:
     table();
     table(const table &examp);
-    void add(const T &value, int key2);
+    void add(const T &value, int key2);//добавить проверку имеется ли такой
     T getvalue(int i) const;
     bool check_key(int hash) const;
     void deletekey(int hash);
