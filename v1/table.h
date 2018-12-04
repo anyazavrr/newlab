@@ -22,7 +22,8 @@ public:
     void deletekey(int hash);
     void deleteall();
     int count() const;
-    Iterator<T> getbegin() const;
+    Iterator<T> getbegin_iter();
+    Iterator<T> getend_iter() ;
     friend class Iterator<T>;
     bool operator ==(const table<T> &other);
     T operator [](int hash);

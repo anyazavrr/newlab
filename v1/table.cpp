@@ -68,12 +68,29 @@ void table<T>::deletekey(int hash)
 }
 
 template <typename T>
-Iterator<T> table<T>::getbegin() const
+Iterator<T> table<T>::getbegin_iter()
 {
-    Iterator<T> begin;
-    begin.curr = list[0];
-    begin.position = 0;
+    Iterator<T> begin(list[0], 0, this);
     return begin;
+}
+
+
+template <typename T>
+Iterator<T> table<T>::getend_iter()
+{
+    if (list[0] == NULL)
+    {
+        Iterator<T> begin(list[0], 0, this);
+        return begin;
+    }
+    else
+    {
+        int i;
+        while (list[i]!= NULL && i<=100) i++;
+        i--;
+        Iterator<T> end(list[i], i, this);
+        return end;
+    }
 }
 
 
