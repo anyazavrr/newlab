@@ -129,14 +129,16 @@ template <typename T>
 Iterator<T>::Iterator()
 {
     curr = NULL;
+    mytable = new table<T>();
     position = -1;
 }
 
 template <typename T>
-Iterator<T>::Iterator(entery<T> *begin, int number)
+Iterator<T>::Iterator(entery<T> *begin, int number, table<T>* current)
 {
     curr = begin;
     position = number;
+    mytable = current;
 }
 
 template <typename T>
@@ -145,9 +147,9 @@ Iterator<T> &Iterator<T>::operator++()
     if (curr !=NULL && position!=100)
     {
         position = position + 1;
-        curr = this->list[position];
+        curr = mytable->list[position];
     }
-    return curr;
+    return *this;
 }
 
 template <typename T>

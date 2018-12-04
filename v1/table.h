@@ -32,7 +32,11 @@ public:
 template <typename T>
 class Iterator
 {
-    Iterator(entery<T>* begin, int number);
+private:
+    entery<T> *curr;
+    int position;
+    Iterator(entery<T>* begin, int number, table<T>* current);
+    table<T>* mytable;
 
 public:
     Iterator();
@@ -42,8 +46,5 @@ public:
     T getvalue() const;
     friend class table<T>;
 
-private:
-    entery<T> *curr;
-    int position;
 };
 #endif // TABLE_H
