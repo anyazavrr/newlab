@@ -129,11 +129,12 @@ template <typename T>
 Iterator<T>::Iterator()
 {
     curr = NULL;
+    mytable = NULL;
     position = -1;
 }
 
 template <typename T>
-Iterator<T>::Iterator(entery<T> *begin, int number)
+Iterator<T>::Iterator(entery<T> *begin, int number, table<t>* )
 {
     curr = begin;
     position = number;
