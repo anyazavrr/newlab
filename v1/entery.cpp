@@ -8,7 +8,7 @@ entery<T>::entery(const T &examp, int key2)
 template <typename T>
 T entery<T>::getvalue() const
 {
-    return value;
+    return value;///some proplem with memory
 }
 template <typename T>
 int entery<T>::getkey() const

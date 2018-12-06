@@ -36,6 +36,11 @@ int main()
     test.add(obj, 5);
     char t = test.getvalue(0);
     cout<<t<<"\n";
+    test.add('a', 6);
+    t = test.getvalue(0);
+    cout<<t<<"\n";
+    t = test.getvalue(1);
+    cout<<t<<"\n";
     table <int> test2;
     test2.add(5,8);
     test2.add(3, 7);
@@ -51,6 +56,15 @@ int main()
     cout<<"after "<<test2.count();
     test2.deleteall();
     cout<<"\nall del "<<test2.count();
+    /*char *c = test[5];
+    if (c == NULL) cout<<"\nnull";
+    else cout<<*c;*/
+    Iterator <char> iter = test.getbegin_iter();
+    test.add('d',7);
+    cout<<"now iter on ";
+    cout<<"now iter on "<<iter.getvalue();
+    ++iter;
+    cout<<"now iter on "<<iter.getvalue();
     return 0;
 }
 

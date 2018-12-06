@@ -28,8 +28,7 @@ void table<T>::add( const T &value, int key2)
     while (i<=100 && list[i]!=NULL) i++;
     if(i<=100 && list[i]==NULL)
     {
-        entery<T>* p = new entery<T>(value, key2);
-        list[i] = p;
+        list[i] = new entery<T>(value, key2);
     }
 
 }
@@ -199,15 +198,34 @@ bool table<T>::operator ==(const table<T> &other)
 }
 
 template <typename T>
-T table<T>::operator [](int hash)
+T* table<T>::operator [](int hash)
 {
     int i = 0;
-    while(list[i]!=NULL && i<=100)
+    bool flag = false;
+    cout<<"\nstep0\n";
+    cout<<this->getvalue(0);
+    while(list[i]!=NULL && i<=100 && flag == false)
     {
+        cout<<"\nstep1\n";
         if (list[i]->getkey()==hash)
-            return list[i]->getvalue();
+            flag = true;
         i++;
-    }///что возвращать?
+
+    }
+    if (flag == true)
+    {
+        T* p = new T;
+        cout<<"\nstep2\n";
+        i--;
+        *p = list[i]->getvalue();
+        return p;
+    }
+
+    else
+    {
+        cout<<"\nstep ((\n";
+        return NULL;
+    }
 }
 
 template class table<char>;
