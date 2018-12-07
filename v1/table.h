@@ -14,10 +14,12 @@ class table
 {
     entery<T>*  list[100];
 public:
+
     table();
-    table(const table &examp);
+    table(const table<T> &examp);
     void add(const T &value, int key2);//добавить проверку имеется ли такой
     T getvalue(int i) const;
+    int getkey(int i) const;
     bool check_key(int hash) const;
     void deletekey(int hash);
     void deleteall();
@@ -27,6 +29,26 @@ public:
     friend class Iterator<T>;
     bool operator ==(const table<T> &other);
     T* operator [](int hash);
+    friend ofstream &operator<<(ofstream &ofs, const table<T> &examp)
+    {
+        Iterator<T> it;
+        for(it = examp.getbegin_iter(); it != NULL; it++)
+            ofs << it.getkey() << ' ' << it.getvalue() << '\n';
+        return ofs;
+    }
+
+    friend ifstream &operator>>(ifstream &ifs, table<t> examp)
+    {
+        int key;
+        T value;
+        while(!ifs.eof())
+        {
+            ifs >> key >> value;
+            examp.add(value, key);
+        }
+        return ifs;
+    }
+
 
 
 };
@@ -34,13 +56,14 @@ template <typename T>
 class Iterator
 {
 private:
-    entery<T> *curr;
+    int key;
+    T value;
     int position;
-    Iterator(entery<T>* begin, int number, table<T>* current);
+    Iterator(entery<T> begin, int number, table<T>* current);
     table<T>* mytable;
 
 public:
-    Iterator();
+
     Iterator &operator++();
     Iterator &operator--();
     int getkey() const;
@@ -48,4 +71,5 @@ public:
     friend class table<T>;
 
 };
+
 #endif // TABLE_H

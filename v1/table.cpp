@@ -11,12 +11,19 @@ table<T>::table()
 }
 
 template <typename T>
-table<T>::table(const table &examp)
+table<T>::table(const table<T> &examp)
 {
     int i;
     for(i = 0;i<=100;i++)
     {
-        list[i] = examp.list[i];
+        if (examp.list[i]!= NULL)
+        {
+            list[i] = new entery<T>(examp.list[i]->getvalue(), examp.list[i]->getkey());
+        }
+        else
+        {
+            list[i] = NULL;
+        }
     }
 
 }
@@ -26,6 +33,11 @@ void table<T>::add( const T &value, int key2)
 {
     int i = 0;
     while (i<=100 && list[i]!=NULL) i++;
+    if (i == 0)
+    {
+        cout<<"i = 0\n";
+        list[i] = new entery<T>(value, key2);
+    }
     if(i<=100 && list[i]==NULL)
     {
         list[i] = new entery<T>(value, key2);
@@ -69,7 +81,7 @@ void table<T>::deletekey(int hash)
 template <typename T>
 Iterator<T> table<T>::getbegin_iter()
 {
-    Iterator<T> begin(list[0], 0, this);
+    Iterator<T> begin(*(list[0]), 0, this);
     return begin;
 }
 
@@ -79,7 +91,7 @@ Iterator<T> table<T>::getend_iter()
 {
     if (list[0] == NULL)
     {
-        Iterator<T> begin(list[0], 0, this);
+        Iterator<T> begin(*(list[0]), 0, this);
         return begin;
     }
     else
@@ -87,7 +99,7 @@ Iterator<T> table<T>::getend_iter()
         int i;
         while (list[i]!= NULL && i<=100) i++;
         i--;
-        Iterator<T> end(list[i], i, this);
+        Iterator<T> end(*(list[i]), i, this);
         return end;
     }
 }
@@ -103,6 +115,12 @@ void table<T>::deleteall()
         list[i] = NULL;
         i++;
     }
+}
+
+template <typename T>
+int table<T>::getkey(int i) const
+{
+    return list[i]->getkey();
 }
 
 template <typename T>
@@ -140,19 +158,11 @@ bool table<T>::check_key(int hash) const
 }
 
 
-
 template <typename T>
-Iterator<T>::Iterator()
+Iterator<T>::Iterator(entery<T> begin, int number, table<T>* current)
 {
-    curr = NULL;
-    mytable = new table<T>();
-    position = -1;
-}
-
-template <typename T>
-Iterator<T>::Iterator(entery<T> *begin, int number, table<T>* current)
-{
-    curr = begin;
+    key = begin.getkey();
+    value = begin.getvalue();
     position = number;
     mytable = current;
 }
@@ -160,10 +170,13 @@ Iterator<T>::Iterator(entery<T> *begin, int number, table<T>* current)
 template <typename T>
 Iterator<T> &Iterator<T>::operator++()
 {
-    if (curr !=NULL && position!=100)
+    int pos = position+1;
+    entery<T> *p= mytable->list[pos];
+    if (p!= NULL )
     {
-        position = position + 1;
-        curr = mytable->list[position];
+        position = pos;
+        key = mytable->getkey(position);
+        value = mytable->getvalue(position);
     }
     return *this;
 }
@@ -171,29 +184,29 @@ Iterator<T> &Iterator<T>::operator++()
 template <typename T>
 int Iterator<T> ::getkey() const
 {
-    return curr->getkey();
+    return key;
 }
 
 template <typename T>
 T Iterator<T> ::getvalue() const
 {
-    return curr->getvalue();
+    return value;
 }
 
 template <typename T>
 bool table<T>::operator ==(const table<T> &other)
 {
-    bool flag = true;
+    cout<<"in == \n";
     int i = 0;
-    while(i<=100 && list[i]!=NULL && other.list[i]!=NULL)
-    {
-        if(list[i]->getkey()!=other.list[i]->getkey() || list[i]->getvalue()!=other.list[i]->getvalue())
-            flag = false;
+    /*while( list[i]!=NULL && other.list[i]!=NULL && list[i]->getkey()==other.list[i]->getkey()
+           && list[i]->getvalue()==other.list[i]->getvalue() && i<=100)
+    {*/
+        cout<<list[i]->getvalue()<<" "<<other.list[i]->getvalue()<<"\n";
+        cout<<list[i]->getkey()<<" "<<other.list[i]->getkey()<<"\n";
         i++;
-    }
-    if (flag == false) return flag;
-    else if ((flag == true && i>100) || (flag == true && list[i]==NULL && other.list[i]==NULL))
-        return flag;
+    //}
+    if((list[i]==NULL && other.list[i]==NULL)|| i>100 )
+        return true;
     else return false;
 }
 
