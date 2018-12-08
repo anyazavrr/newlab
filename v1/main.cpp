@@ -66,7 +66,9 @@ int main()
 
 
     ofstream file2;
-   // file2<<test2;
+    file2.open("2.txt");
+    file2<<test2;
+
 
     return 0;
 }

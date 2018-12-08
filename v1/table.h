@@ -5,6 +5,7 @@
 #include <iomanip>
 #include "entery.h"
 #include <fstream>
+#include <iostream>
 using namespace std;
 template <typename T>
 class Iterator;
@@ -30,13 +31,17 @@ public:
     friend class Iterator<T>;
     bool operator ==(const table<T> &other);
     T* operator [](int hash);
-    friend ofstream &operator<<(ofstream &ofs, const table<T> &examp)
+    friend ofstream &operator<<(ofstream &ofs,  table<T> &examp)
     {
         Iterator<T> it= examp.getbegin_iter() ;
         int k = examp.count();
+        cout<<"k= "<<k<<"\n";
         int i;
-        for(i = 0; i<k; ++it)
+        for(i = 0; i<k-1; ++it)
+        {
             ofs << it.getkey() << ' ' << it.getvalue() << '\n';
+            i++;
+        }
         return ofs;
     }
 
