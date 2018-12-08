@@ -63,12 +63,51 @@ int main()
     cout<<iter2.getvalue()<<"\n";
     ++iter2;
     cout<<iter2.getvalue()<<"\n";
-
+    file.close();
 
     ofstream file2;
     file2.open("2.txt");
     file2<<test2;
+    file2.close();
 
+    ifstream file3;
+    file3.open("2.txt");
+    table<char> test3;
+    file3>>test3;
+    Iterator<char> iter3 = test3.getbegin_iter();
+    cout<<"\n"<<iter3.getvalue()<<"\n";
+    ++iter3;
+    cout<<iter3.getvalue()<<"\n";
+    ++iter3;
+    cout<<iter3.getvalue()<<"\n";
+    ++iter3;
+    cout<<iter3.getvalue()<<"\n";
+
+    Iterator<char> iter4 = test3.getbegin_iter();
+    cout<<"\n"<<iter4.getvalue()<<"\n";
+    ++iter4;
+    cout<<iter4.getvalue()<<"\n";
+    ++iter4;
+    cout<<iter4.getvalue()<<"\n";
+    ++iter4;
+    cout<<iter4.getvalue()<<"\n";
+
+    /*table<char> test4(test);
+    Iterator<char> iter4 = test4.getbegin_iter();
+    cout<<"копия\n";
+    cout<<"\n"<<iter4.getvalue()<<"\n";
+    ++iter4;
+    cout<<iter4.getvalue()<<"\n";
+    ++iter4;
+    cout<<iter4.getvalue()<<"\n";
+    ++iter4;
+    cout<<iter4.getvalue()<<"\n";
+    /*if(test2 == test3)
+        cout<<"коллекции равны\n";
+    else
+    {
+         cout<<"коллекции не равны\n";
+    }*/
 
     return 0;
 }

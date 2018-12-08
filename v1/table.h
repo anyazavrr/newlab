@@ -29,7 +29,7 @@ public:
     Iterator<T> getbegin_iter();
     Iterator<T> getend_iter() ;
     friend class Iterator<T>;
-    bool operator ==(const table<T> &other);
+    bool operator ==( table<T> &other);
     T* operator [](int hash);
     friend ofstream &operator<<(ofstream &ofs,  table<T> &examp)
     {

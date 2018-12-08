@@ -200,20 +200,9 @@ table<T>* Iterator<T> ::get_table() const
 }
 
 template <typename T>
-bool table<T>::operator ==(const table<T> &other)
+bool table<T>::operator ==( table<T> &other)
 {
-    cout<<"in == \n";
-    int i = 0;
-    /*while( list[i]!=NULL && other.list[i]!=NULL && list[i]->getkey()==other.list[i]->getkey()
-           && list[i]->getvalue()==other.list[i]->getvalue() && i<=100)
-    {*/
-        cout<<list[i]->getvalue()<<" "<<other.list[i]->getvalue()<<"\n";
-        cout<<list[i]->getkey()<<" "<<other.list[i]->getkey()<<"\n";
-        i++;
-    //}
-    if((list[i]==NULL && other.list[i]==NULL)|| i>100 )
-        return true;
-    else return false;
+
 }
 
 template <typename T>
