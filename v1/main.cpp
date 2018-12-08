@@ -33,82 +33,15 @@ int main()
 {
     setlocale(LC_ALL, "RUS");
     table<char> test;
-    test.add('s', hash("UAA"));
-    test.add('d', 7);
-    test.add('a', 9);
-    char* c = test[7];
-    cout<<*c;
-    Iterator<char> iter = test.getbegin_iter();
-    cout<<"\n"<<iter.getvalue()<<"\n";
-    ++iter;
-    cout<<iter.getvalue()<<"\n";
-    ++iter;
-    cout<<iter.getvalue()<<"\n";
-    ++iter;
-    cout<<iter.getvalue()<<"\n";
-    Iterator<char> it = test.getend_iter();
-    cout<<it.getvalue()<<"\n";
-
-
-    ifstream file;
-    file.open("1.txt");
-    table<char> test2;
-    file>>test2;
-    cout<<test2.getvalue(0)<<"\n";
-    Iterator<char> iter2 = test2.getbegin_iter();
-    cout<<"\n"<<iter2.getvalue()<<"\n";
-    ++iter2;
-    cout<<iter2.getvalue()<<"\n";
-    ++iter2;
-    cout<<iter2.getvalue()<<"\n";
-    ++iter2;
-    cout<<iter2.getvalue()<<"\n";
-    file.close();
-
-    ofstream file2;
-    file2.open("2.txt");
-    file2<<test2;
-    file2.close();
-
-    ifstream file3;
-    file3.open("2.txt");
-    table<char> test3;
-    file3>>test3;
-    Iterator<char> iter3 = test3.getbegin_iter();
-    cout<<"\n"<<iter3.getvalue()<<"\n";
-    ++iter3;
-    cout<<iter3.getvalue()<<"\n";
-    ++iter3;
-    cout<<iter3.getvalue()<<"\n";
-    ++iter3;
-    cout<<iter3.getvalue()<<"\n";
-
-    Iterator<char> iter4 = test3.getbegin_iter();
-    cout<<"\n"<<iter4.getvalue()<<"\n";
-    ++iter4;
-    cout<<iter4.getvalue()<<"\n";
-    ++iter4;
-    cout<<iter4.getvalue()<<"\n";
-    ++iter4;
-    cout<<iter4.getvalue()<<"\n";
-
-    /*table<char> test4(test);
-    Iterator<char> iter4 = test4.getbegin_iter();
-    cout<<"копия\n";
-    cout<<"\n"<<iter4.getvalue()<<"\n";
-    ++iter4;
-    cout<<iter4.getvalue()<<"\n";
-    ++iter4;
-    cout<<iter4.getvalue()<<"\n";
-    ++iter4;
-    cout<<iter4.getvalue()<<"\n";
-    /*if(test2 == test3)
-        cout<<"коллекции равны\n";
-    else
+    test.add('a', hash("UUG"));
+    test.add('f', hash("UUA"));
+    test.add('l', hash("UUU"));
+    table<char> test2(test);
+    int i;
+    for(i=0;i<3;i++)
     {
-         cout<<"коллекции не равны\n";
-    }*/
-
+        cout<<test2.getvalue(i)<<"\n";
+    }
     return 0;
 }
 

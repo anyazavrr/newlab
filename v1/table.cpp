@@ -14,7 +14,7 @@ template <typename T>
 table<T>::table(const table<T> &examp)
 {
     int i;
-    for(i = 0;i<=100;i++)
+    for(i = 0;i<100;i++)
     {
         if (examp.list[i]!= NULL)
         {
@@ -27,18 +27,29 @@ table<T>::table(const table<T> &examp)
     }
 
 }
+/*
+template <typename T>
+table<T>::table(const table<T> &examp)
+{
+    int i;
+    for(i = 0;i<100;i++)
+    {
+        list[i] = examp.list[i];
+    }
+
+}*/
 
 template <typename T>
 void table<T>::add( const T &value, int key2)
 {
     int i = 0;
-    while (i<=100 && list[i]!=NULL) i++;
+    while (i<100 && list[i]!=NULL) i++;
     if (i == 0)
     {
         cout<<"i = 0\n";
         list[i] = new entery<T>(value, key2);
     }
-    if(i<=100 && list[i]==NULL)
+    if(i<100 && list[i]==NULL)
     {
         list[i] = new entery<T>(value, key2);
     }
@@ -109,7 +120,7 @@ template <typename T>
 void table<T>::deleteall()
 {
     int i = 0;
-    while(i<=100 && list[i]!= NULL)
+    while(i<100 && list[i]!= NULL)
     {
         delete(list[i]);
         list[i] = NULL;
@@ -128,7 +139,7 @@ int table<T>::count() const
 {
     int i = 0;
     int amount = 0;
-    while(i<=100 && list[i]!= NULL)
+    while(i<100 && list[i]!= NULL)
     {
         amount++;
         i++;
@@ -148,7 +159,7 @@ bool table<T>::check_key(int hash) const
 {
     int i = 0;
     bool flag = false;
-    while(list[i]!=NULL && i<=100)
+    while(list[i]!=NULL && i<100)
     {
         if (list[i]->getkey()==hash)
             flag = true;
@@ -212,7 +223,7 @@ T* table<T>::operator [](int hash)
     bool flag = false;
     cout<<"\nstep0\n";
     cout<<this->getvalue(0);
-    while(list[i]!=NULL && i<=100 && flag == false)
+    while(list[i]!=NULL && i<100 && flag == false)
     {
         cout<<"\nstep1\n";
         if (list[i]->getkey()==hash)
