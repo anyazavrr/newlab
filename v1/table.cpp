@@ -96,7 +96,7 @@ Iterator<T> table<T>::getend_iter()
     }
     else
     {
-        int i;
+        int i = 0;
         while (list[i]!= NULL && i<=100) i++;
         i--;
         Iterator<T> end(*(list[i]), i, this);
@@ -191,6 +191,12 @@ template <typename T>
 T Iterator<T> ::getvalue() const
 {
     return value;
+}
+
+template <typename T>
+table<T>* Iterator<T> ::get_table() const
+{
+    return mytable;
 }
 
 template <typename T>

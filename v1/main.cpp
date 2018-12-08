@@ -49,6 +49,25 @@ int main()
     Iterator<char> it = test.getend_iter();
     cout<<it.getvalue()<<"\n";
 
+
+    ifstream file;
+    file.open("1.txt");
+    table<char> test2;
+    file>>test2;
+    cout<<test2.getvalue(0)<<"\n";
+    Iterator<char> iter2 = test2.getbegin_iter();
+    cout<<"\n"<<iter2.getvalue()<<"\n";
+    ++iter2;
+    cout<<iter2.getvalue()<<"\n";
+    ++iter2;
+    cout<<iter2.getvalue()<<"\n";
+    ++iter2;
+    cout<<iter2.getvalue()<<"\n";
+
+
+    ofstream file2;
+   // file2<<test2;
+
     return 0;
 }
 

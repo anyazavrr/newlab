@@ -4,6 +4,7 @@
 #include <math.h>
 #include <iomanip>
 #include "entery.h"
+#include <fstream>
 using namespace std;
 template <typename T>
 class Iterator;
@@ -31,13 +32,15 @@ public:
     T* operator [](int hash);
     friend ofstream &operator<<(ofstream &ofs, const table<T> &examp)
     {
-        Iterator<T> it;
-        for(it = examp.getbegin_iter(); it != NULL; it++)
+        Iterator<T> it= examp.getbegin_iter() ;
+        int k = examp.count();
+        int i;
+        for(i = 0; i<k; ++it)
             ofs << it.getkey() << ' ' << it.getvalue() << '\n';
         return ofs;
     }
 
-    friend ifstream &operator>>(ifstream &ifs, table<t> examp)
+    friend ifstream &operator>>(ifstream &ifs, table<T> &examp)
     {
         int key;
         T value;
@@ -65,9 +68,9 @@ private:
 public:
 
     Iterator &operator++();
-    Iterator &operator--();
     int getkey() const;
     T getvalue() const;
+    table<T>* get_table() const;
     friend class table<T>;
 
 };
