@@ -213,7 +213,15 @@ table<T>* Iterator<T> ::get_table() const
 template <typename T>
 bool table<T>::operator ==( table<T> &other)
 {
-
+    int i = 0;
+    for(;i<100, list[i]!= NULL, other.list[i]!= NULL;i++)
+    {
+        if((list[i]->getkey()!=other.list[i]->getkey())|| (list[i]->getvalue()!=other.list[i]->getvalue()) )
+            return false;
+    }
+    if (((list[i]==NULL) && (other.list[i]!=NULL))||((list[i]!=NULL) && (other.list[i]==NULL)))
+        return false;
+    return true;
 }
 
 template <typename T>

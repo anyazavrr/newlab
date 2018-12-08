@@ -42,6 +42,8 @@ int main()
     {
         cout<<test2.getvalue(i)<<"\n";
     }
+    if (test == test2)cout<<"all work\n";
+    else cout<<"noo\n";
     return 0;
 }
 
