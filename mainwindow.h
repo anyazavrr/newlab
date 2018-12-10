@@ -14,7 +14,12 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    int row;
+    int column;
     
+private slots:
+    void on_action_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
