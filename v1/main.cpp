@@ -4,36 +4,11 @@
 #include <assert.h>
 using namespace std;
 
-unsigned int hash(string s)
-{
-    if(s.length()==3)
-    {
-        unsigned int k = 0;
-        int i;
-        for(i=0; i<4;i++)
-        {
-            if (s[i]=='C'||s[i]=='c')
-            {
-                k = k + pow(10.0, 2-i);
-            }
-            if (s[i]=='A'||s[i]=='a')
-            {
-                k = k +2* pow(10.0, 2-i);
-            }
-            if (s[i]=='G'||s[i]=='g')
-            {
-                k = k +3* pow(10.0, 2-i);
-            }
-        }
-        return k;
-    }
-    else
-    return 334;
-}
+
 int main()
 {
     setlocale(LC_ALL, "RUS");
-    table<char> test;
+    /*table<char> test;
     assert(test.count()==0);
     test.add('a', hash("UUG"));
     assert(test.count()==1);
@@ -63,7 +38,7 @@ int main()
     {
         cout<<test2.getvalue(i)<<"\n";
     }*/
-    assert(test1 == test2);
+    /*assert(test1 == test2);
     test2.add('d', hash("UAG"));
     assert(!(test1 == test2));
 
@@ -75,14 +50,14 @@ int main()
     {
         cout<<test3.getvalue(i)<<"\n";
     }*/
-    Iterator<char> iter = test3.getbegin_iter();
+    //Iterator<char> iter = test3.getbegin_iter();
     /*while(!(iter == test3.getend_iter()))
     {
         cout<<iter.getkey()<<" "<<iter.getvalue()<<"\n";
         i++;
     }*/
 
-    file.close();
+    /*file.close();
 
     ofstream file2;
     file2.open("2.txt");
@@ -99,7 +74,7 @@ int main()
         cout<<iter1.getkey()<<" "<<iter1.getvalue()<<"\n";
         i++;
     }*/
-    assert(test3 == test4);
+    //assert(test3 == test4);
 
     return 0;
 }

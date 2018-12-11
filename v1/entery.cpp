@@ -1,19 +1,21 @@
 #include "entery.h"
-template <typename T>
-entery<T>::entery(const T &examp, int key2)
+#include <string>
+using namespace std;
+template <typename T, typename K>
+entery<T,K>::entery(const T &examp, K key2)
 {
     value = examp;
     key = key2;
 }
-template <typename T>
-T entery<T>::getvalue() const
+template <typename T, typename K>
+T entery<T,K>::getvalue() const
 {
     return value;///some proplem with memory
 }
-template <typename T>
-int entery<T>::getkey() const
+template <typename T, typename K>
+K entery<T,K>::getkey() const
 {
     return key;
 }
-template class entery<char>;
-template class entery<int>;
+template class entery<char, string>;
+template class entery<int,string>;
