@@ -98,7 +98,8 @@ void table<T,K>::deletekey(K key)
     int i = hash(key);
     if (i<334 && list[i]!=NULL)
         {
-        delete(list[i]);
+            delete(list[i]);
+            list[i] = NULL;
         }
 }
 
@@ -238,13 +239,26 @@ bool table<T,K>::operator ==( table<T,K> &other)
     int i = 0;
     while(i<334)
     {
-        if(list[i]==NULL && other.list[i]==NULL) i++;
+
+        if(list[i]==NULL && other.list[i]==NULL)
+        {
+
+            i++;
+        }
         else if(list[i]!=NULL && other.list[i]!=NULL)
         {
-            if(!(list[i]==other.list[i])) return false;
+            cout<<"not NULL";
+
+            if(!((*(list[i]))==(*(other.list[i])))) return false;//эта часть не робит
             else i++;
         }
-        else return false;
+        else
+        {
+            cout<<"ff\n";
+            if(list[i]!=NULL) cout<<list[i]->getvalue();
+            if (other.list[i]!=NULL) cout<<other.list[i]->getvalue();
+            return false;
+        }
     }
     return true;
 }

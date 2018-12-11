@@ -12,9 +12,7 @@ public:
     K getkey() const;
     bool operator ==( entery<T,K> &other)
     {
-        if(key == other.key && value == other.value)
-            return true;
-        else return false;
+            return (key == other.key && value == other.value);
     }
 };
 

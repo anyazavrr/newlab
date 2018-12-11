@@ -76,6 +76,11 @@ private:
 public:
 
     Iterator &operator++();
+   bool operator ==(const Iterator<T,K> &other) const
+    {
+        return (key == other.key);
+    }
+
     K getkey() const;
     T getvalue() const;
     table<T,K>* get_table() const;
