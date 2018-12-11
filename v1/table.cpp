@@ -43,15 +43,26 @@ template <typename T>
 void table<T>::add( const T &value, int key2)
 {
     int i = 0;
-    while (i<100 && list[i]!=NULL) i++;
-    if (i == 0)
+    bool flag = false;
+    while(list[i]!=NULL && i<100)
     {
-        cout<<"i = 0\n";
-        list[i] = new entery<T>(value, key2);
+        if (list[i]->getkey()==key2)
+            flag = true;
+        i++;
     }
-    if(i<100 && list[i]==NULL)
+    if (flag == false)
     {
-        list[i] = new entery<T>(value, key2);
+        i = 0;
+        while (i<100 && list[i]!=NULL) i++;
+        if (i == 0)
+        {
+            cout<<"i = 0\n";
+            list[i] = new entery<T>(value, key2);
+        }
+        if(i<100 && list[i]==NULL)
+        {
+            list[i] = new entery<T>(value, key2);
+        }
     }
 
 }
@@ -214,10 +225,11 @@ template <typename T>
 bool table<T>::operator ==( table<T> &other)
 {
     int i = 0;
-    for(;i<100, list[i]!= NULL, other.list[i]!= NULL;i++)
+    while(i<100 && list[i]!= NULL && other.list[i]!= NULL)
     {
         if((list[i]->getkey()!=other.list[i]->getkey())|| (list[i]->getvalue()!=other.list[i]->getvalue()) )
             return false;
+        i++;
     }
     if (((list[i]==NULL) && (other.list[i]!=NULL))||((list[i]!=NULL) && (other.list[i]==NULL)))
         return false;

@@ -90,7 +90,7 @@ void table<T>::deletekey(int hash)
 }
 
 template <typename T>
-Iterator<T> table<T>::getbegin_iter()
+Iterator<T> table<T>::getbegin_iter() const
 {
     Iterator<T> begin(*(list[0]), 0, this);
     return begin;
