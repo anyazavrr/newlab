@@ -1,24 +1,52 @@
 #include "table.h"
 #include <iostream>
-template <typename T>
-table<T>::table()
+#include <string>
+using namespace std;
+unsigned int hash(string s)
+{
+    if(s.length()==3)
+    {
+        unsigned int k = 0;
+        int i;
+        for(i=0; i<4;i++)
+        {
+            if (s[i]=='C'||s[i]=='c')
+            {
+                k = k + pow(10.0, 2-i);
+            }
+            if (s[i]=='A'||s[i]=='a')
+            {
+                k = k +2* pow(10.0, 2-i);
+            }
+            if (s[i]=='G'||s[i]=='g')
+            {
+                k = k +3* pow(10.0, 2-i);
+            }
+        }
+        return k;
+    }
+    else
+    return 334;
+}
+template <typename T, typename K>
+table<T,K>::table()
 {
     int i;
-    for(i = 0;i<=100;i++)
+    for(i = 0;i<334;i++)
     {
         list[i] = NULL;
     }
 }
 
-template <typename T>
-table<T>::table(const table<T> &examp)
+template <typename T, typename K>
+table<T,K>::table(const table<T,K> &examp)
 {
     int i;
-    for(i = 0;i<100;i++)
+    for(i = 0;i<334;i++)
     {
         if (examp.list[i]!= NULL)
         {
-            list[i] = new entery<T>(examp.list[i]->getvalue(), examp.list[i]->getkey());
+            list[i] = new entery<T,K>(examp.list[i]->getvalue(), examp.list[i]->getkey());
         }
         else
         {
@@ -39,138 +67,132 @@ table<T>::table(const table<T> &examp)
 
 }*/
 
-template <typename T>
-void table<T>::add( const T &value, int key2)
+template <typename T, typename K>
+void table<T,K>::add( const T &value, K key2)
 {
     int i = 0;
-    while (i<100 && list[i]!=NULL) i++;
-    if (i == 0)
+    int h = hash(key2);
+    bool flag = false;
+    while(i<334)
     {
-        cout<<"i = 0\n";
-        list[i] = new entery<T>(value, key2);
-    }
-    if(i<100 && list[i]==NULL)
-    {
-        list[i] = new entery<T>(value, key2);
-    }
-
-}
-
-template <typename T>
-void table<T>::deletekey(int hash)
-{
-    cout<<"del\n";
-    bool mainflag = false;
-    while (mainflag==false)
-    {
-        cout<<"in\n";
-        mainflag = true;
-        bool flag = false;
-        int i = 0;
-        while(flag == false && i<=100  && list[i]!= NULL)
+        if(list[i]!=NULL)
         {
-            if(list[i]->getkey()==hash) flag =true ;
-            i++;
-
+            if (list[i]->getkey()==key2)
+                flag = true;
         }
-        if (flag == true)
+        i++;
+    }
+    if (flag == false)
+    {
+        if(h<334 && list[h]==NULL)
         {
-            i--;
-            cout<<"true\n";
-            mainflag == false;
-            while(i<=100 && list[i]!=NULL)
-            {
-                list[i] = list[i+1];
-                i++;
-            }
-
+            list[h] = new entery<T,K>(value, key2);
         }
     }
 
 }
 
-template <typename T>
-Iterator<T> table<T>::getbegin_iter() const
+template <typename T, typename K>
+void table<T,K>::deletekey(K key)
 {
-    Iterator<T> begin(*(list[0]), 0, this);
-    return begin;
+    int i = hash(key);
+    if (i<334 && list[i]!=NULL)
+        {
+            delete(list[i]);
+            list[i] = NULL;
+        }
 }
 
-
-template <typename T>
-Iterator<T> table<T>::getend_iter()
+template <typename T, typename K>
+Iterator<T,K> table<T,K>::getbegin_iter()
 {
-    if (list[0] == NULL)
+    int i = 0;
+    while (list[i]== NULL && i<334) i++;
+    if(i<334)
     {
-        Iterator<T> begin(*(list[0]), 0, this);
+        Iterator<T,K> begin(*(list[i]), i, this);
         return begin;
     }
     else
     {
-        int i = 0;
-        while (list[i]!= NULL && i<=100) i++;
-        i--;
-        Iterator<T> end(*(list[i]), i, this);
-        return end;
+        Iterator<T,K> begin(*(list[0]), 0, this);
+           return begin;
     }
+
 }
 
 
-template <typename T>
-void table<T>::deleteall()
+template <typename T, typename K>
+Iterator<T,K> table<T,K>::getend_iter()
+{
+        int i = 333;
+        while (list[i]== NULL && i>=0) i--;
+        if(i>=0)
+        {
+            Iterator<T,K> begin(*(list[i]), i, this);
+            return begin;
+        }
+        else
+        {
+            Iterator<T,K> begin(*(list[0]), 0, this);
+               return begin;
+        }
+}
+
+
+template <typename T, typename K>
+void table<T, K>::deleteall()
 {
     int i = 0;
-    while(i<100 && list[i]!= NULL)
+    while(i<334)
     {
-        delete(list[i]);
+        if(list[i]!= NULL)
+            delete(list[i]);
         list[i] = NULL;
         i++;
     }
 }
 
-template <typename T>
-int table<T>::getkey(int i) const
+template <typename T, typename K>
+K table<T,K>::getkey(int i) const
 {
     return list[i]->getkey();
 }
 
-template <typename T>
-int table<T>::count() const
+template <typename T, typename K>
+int table<T,K>::count() const
 {
     int i = 0;
     int amount = 0;
-    while(i<100 && list[i]!= NULL)
+    while(i<334)
     {
-        amount++;
+        if(list[i]!= NULL)
+            amount++;
         i++;
     }
     return amount;
 }
 
-template <typename T>
-T table<T>::getvalue(int i) const
+template <typename T,typename K>
+T table<T,K>::getvalue(int i) const
 {
     T value = list[i]->getvalue();
     return value;
 }
 
-template <typename T>
-bool table<T>::check_key(int hash) const
+template <typename T,typename K>
+bool table<T,K>::check_key(K key) const
 {
-    int i = 0;
+    int i = hash(key);
     bool flag = false;
-    while(list[i]!=NULL && i<100)
-    {
-        if (list[i]->getkey()==hash)
-            flag = true;
-        i++;
-    }
+    if (list[i]!= NULL && list[i]->getkey()==key)
+        flag = true;
     return flag;
 }
 
 
-template <typename T>
-Iterator<T>::Iterator(entery<T> begin, int number, table<T>* current)
+template <typename T,typename K>
+Iterator<T,K>::Iterator(entery<T,K> begin, int number, table<T,K>* current)
 {
     key = begin.getkey();
     value = begin.getvalue();
@@ -178,84 +200,89 @@ Iterator<T>::Iterator(entery<T> begin, int number, table<T>* current)
     mytable = current;
 }
 
-template <typename T>
-Iterator<T> &Iterator<T>::operator++()
+template <typename T,typename K>
+Iterator<T,K> &Iterator<T,K>::operator++()
 {
-    int pos = position+1;
-    entery<T> *p= mytable->list[pos];
-    if (p!= NULL )
+    int i = position;
+    i++;
+    while (i<334 && mytable->list[i]==NULL ) i++;
+    if (i<334 )
     {
-        position = pos;
+        position = i;
         key = mytable->getkey(position);
         value = mytable->getvalue(position);
     }
     return *this;
 }
 
-template <typename T>
-int Iterator<T> ::getkey() const
+template <typename T,typename K>
+K Iterator<T,K> ::getkey() const
 {
     return key;
 }
 
-template <typename T>
-T Iterator<T> ::getvalue() const
+template <typename T,typename K>
+T Iterator<T,K> ::getvalue() const
 {
     return value;
 }
 
-template <typename T>
-table<T>* Iterator<T> ::get_table() const
+template <typename T,typename K>
+table<T,K>* Iterator<T,K> ::get_table() const
 {
     return mytable;
 }
 
-template <typename T>
-bool table<T>::operator ==( table<T> &other)
+template <typename T,typename K>
+bool table<T,K>::operator ==( table<T,K> &other)
 {
     int i = 0;
-    for(;i<100, list[i]!= NULL, other.list[i]!= NULL;i++)
+    while(i<334)
     {
-        if((list[i]->getkey()!=other.list[i]->getkey())|| (list[i]->getvalue()!=other.list[i]->getvalue()) )
+
+        if(list[i]==NULL && other.list[i]==NULL)
+        {
+
+            i++;
+        }
+        else if(list[i]!=NULL && other.list[i]!=NULL)
+        {
+            cout<<"not NULL";
+
+            if(!((*(list[i]))==(*(other.list[i])))) return false;//эта часть не робит
+            else i++;
+        }
+        else
+        {
+            cout<<"ff\n";
+            if(list[i]!=NULL) cout<<list[i]->getvalue();
+            if (other.list[i]!=NULL) cout<<other.list[i]->getvalue();
             return false;
+        }
     }
-    if (((list[i]==NULL) && (other.list[i]!=NULL))||((list[i]!=NULL) && (other.list[i]==NULL)))
-        return false;
     return true;
 }
 
-template <typename T>
-T* table<T>::operator [](int hash)
+template <typename T,typename K>
+T* table<T,K>::operator [](K key)
 {
-    int i = 0;
-    bool flag = false;
-    cout<<"\nstep0\n";
-    cout<<this->getvalue(0);
-    while(list[i]!=NULL && i<100 && flag == false)
+    int i = hash(key);
+    if (i<334)
     {
-        cout<<"\nstep1\n";
-        if (list[i]->getkey()==hash)
-            flag = true;
-        i++;
-
-    }
-    if (flag == true)
-    {
-        T* p = new T;
-        cout<<"\nstep2\n";
-        i--;
-        *p = list[i]->getvalue();
-        return p;
-    }
-
-    else
-    {
-        cout<<"\nstep ((\n";
-        return NULL;
+        if (list[i]!=NULL)
+        {
+            T* p = new T;
+            *p = list[i]->getvalue();
+            return p;
+        }
+        else
+        {
+            return NULL;
+        }
     }
 }
 
-template class table<char>;
-template class table<int>;
-template class Iterator<char>;
-template class Iterator<int>;
+template class table<char,string>;
+template class table<int,string>;
+template class Iterator<char,string>;
+template class Iterator<int,string>;

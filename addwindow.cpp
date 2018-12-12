@@ -20,8 +20,7 @@ void AddWindow::on_pushButton_2_clicked()
 
 void AddWindow::on_pushButton_clicked()
 {
-    std::string k = ui->lineEdit->text().toStdString();
-    key = atoi(k.c_str());
+    key = ui->lineEdit->text();
     value = ui->lineEdit_2->text();
     close();
 }

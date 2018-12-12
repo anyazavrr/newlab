@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Sat 8. Dec 21:59:38 2018
+** Created: Wed 12. Dec 10:32:02 2018
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -41,11 +41,11 @@ public:
     QPushButton *create_prot;
     QPushButton *search;
     QLabel *label_4;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QLabel *label_3;
     QLabel *number_of_objects;
-    QWidget *widget1;
+    QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout_2;
     QLabel *key;
     QLabel *acid;
@@ -290,40 +290,40 @@ public:
         label_4 = new QLabel(centralWidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(1460, 640, 53, 16));
-        widget = new QWidget(centralWidget);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(320, 60, 121, 51));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(centralWidget);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(320, 60, 121, 51));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        label_3 = new QLabel(widget);
+        label_3 = new QLabel(layoutWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
         verticalLayout->addWidget(label_3);
 
-        number_of_objects = new QLabel(widget);
+        number_of_objects = new QLabel(layoutWidget);
         number_of_objects->setObjectName(QString::fromUtf8("number_of_objects"));
         number_of_objects->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
 
         verticalLayout->addWidget(number_of_objects);
 
-        widget1 = new QWidget(centralWidget);
-        widget1->setObjectName(QString::fromUtf8("widget1"));
-        widget1->setGeometry(QRect(320, 180, 121, 51));
-        verticalLayout_2 = new QVBoxLayout(widget1);
+        layoutWidget1 = new QWidget(centralWidget);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(320, 180, 121, 51));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget1);
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        key = new QLabel(widget1);
+        key = new QLabel(layoutWidget1);
         key->setObjectName(QString::fromUtf8("key"));
         key->setStyleSheet(QString::fromUtf8("background-color: rgb(238, 217, 255);"));
 
         verticalLayout_2->addWidget(key);
 
-        acid = new QLabel(widget1);
+        acid = new QLabel(layoutWidget1);
         acid->setObjectName(QString::fromUtf8("acid"));
         acid->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
 
@@ -368,7 +368,7 @@ public:
         action_4->setText(QApplication::translate("MainWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214 \321\215\320\273\320\265\320\274\320\265\320\275\321\202", 0, QApplication::UnicodeUTF8));
         action_5->setText(QApplication::translate("MainWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214 \320\262\321\201\320\265 \321\215\320\273\320\265\320\274\320\265\320\275\321\202\321\213", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
-        ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "hash", 0, QApplication::UnicodeUTF8));
+        ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "key", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
         ___qtablewidgetitem1->setText(QApplication::translate("MainWindow", "value", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidget->verticalHeaderItem(0);

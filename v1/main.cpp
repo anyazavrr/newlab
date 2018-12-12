@@ -52,14 +52,14 @@ int main()
         cout<<test3.getvalue(i)<<"\n";
     }*/
     Iterator<char,string> iter = test3.getbegin_iter();
-    //while(!(iter == test3.getend_iter()))
-    //{
-        cout<<iter.getkey()<<" "<<iter.getvalue()<<"\n";
+    while(!(iter == test3.getend_iter()))
+    {
+        cout<<iter.getkey()<<"еге "<<iter.getvalue()<<"\n";
         ++iter;
         cout<<iter.getkey()<<" "<<iter.getvalue()<<"\n";
          ++iter;
         cout<<iter.getkey()<<" "<<iter.getvalue()<<"\n";
-    //}
+    }
 
     file.close();
 

@@ -6,50 +6,54 @@
 #include "entery.h"
 #include <fstream>
 #include <iostream>
+
 using namespace std;
-template <typename T>
+
+template <typename T,typename K>
 class Iterator;
 
 
-template <typename T>
+template <typename T, typename K>
 class table
 {
-    entery<T>*  list[100];
+    entery<T,K>*  list[334];
+    T getvalue(int i) const;
+    K getkey(int i) const;
 public:
 
     table();
-    table(const table<T> &examp);
-    void add(const T &value, int key2);//добавить проверку имеется ли такой
-    T getvalue(int i) const;
-    int getkey(int i) const;
-    bool check_key(int hash) const;
-    void deletekey(int hash);
+    table(const table<T,K> &examp);
+    void add(const T &value, K key2);//добавить проверку имеется ли такой
+    //private
+    //
+    bool check_key(K key) const;
+    void deletekey(K key);
     void deleteall();
     int count() const;
-    Iterator<T> getbegin_iter();
-    Iterator<T> getend_iter() ;
-    friend class Iterator<T>;
-    bool operator ==( table<T> &other);
-    T* operator [](int hash);
-    friend ofstream &operator<<(ofstream &ofs,  table<T> &examp)
+    Iterator<T,K> getbegin_iter();
+    Iterator<T,K> getend_iter() ;
+    friend class Iterator<T,K>;
+    bool operator ==( table<T,K> &other);
+    T* operator [](K key);
+    friend ofstream &operator<<(ofstream &ofs,  table<T,K> &examp)
     {
-        Iterator<T> it= examp.getbegin_iter() ;
+        Iterator<T,K> it= examp.getbegin_iter() ;
         int k = examp.count();
-        cout<<"k= "<<k<<"\n";
+        //cout<<"k= "<<k<<"\n";
         int i;
-        for(i = 0; i<k-1; ++it)
+        for(i = 0; i<k; ++it)
         {
-            ofs << it.getkey() << ' ' << it.getvalue() << '\n';
+            ofs << it.getkey() << " " << it.getvalue() << '\n';
             i++;
         }
         return ofs;
     }
 
-    friend ifstream &operator>>(ifstream &ifs, table<T> &examp)
+    friend ifstream &operator>>(ifstream &ifs, table<T,K> &examp)
     {
-        int key;
+        K key;
         T value;
-        while(!ifs.eof())
+        while(!ifs.eof())//прочитать определенное число
         {
             ifs >> key >> value;
             examp.add(value, key);
@@ -58,25 +62,29 @@ public:
     }
 
 
-
 };
-template <typename T>
+template <typename T, typename K>
 class Iterator
 {
 private:
-    int key;
+    K key;
     T value;
     int position;
-    Iterator(entery<T> begin, int number, table<T>* current);
-    table<T>* mytable;
+    Iterator(entery<T,K> begin, int number, table<T,K>* current);
+    table<T,K>* mytable;
 
 public:
 
     Iterator &operator++();
-    int getkey() const;
+   bool operator ==(const Iterator<T,K> &other) const
+    {
+        return (key == other.key);
+    }
+
+    K getkey() const;
     T getvalue() const;
-    table<T>* get_table() const;
-    friend class table<T>;
+    table<T,K>* get_table() const;
+    friend class table<T,K>;
 
 };
 

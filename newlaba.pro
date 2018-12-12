@@ -14,12 +14,18 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     entery.cpp \
     table.cpp \
-    addwindow.cpp
+    addwindow.cpp \
+    searchwin.cpp \
+    inputwin.cpp
 
 HEADERS  += mainwindow.h \
     entery.h \
     table.h \
-    addwindow.h
+    addwindow.h \
+    searchwin.h \
+    inputwin.h
 
 FORMS    += mainwindow.ui \
-    addwindow.ui
+    addwindow.ui \
+    searchwin.ui \
+    inputwin.ui

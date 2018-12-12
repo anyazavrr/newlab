@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include "entery.h"
+#include "table.h"
 #include <QMainWindow>
 
 namespace Ui {
@@ -14,11 +15,14 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    table<char,string> mytable;
     int row;
     int column;
     
 private slots:
     void on_action_triggered();
+
+    void on_search_clicked();
 
 private:
     Ui::MainWindow *ui;

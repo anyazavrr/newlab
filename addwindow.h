@@ -14,7 +14,7 @@ class AddWindow : public QDialog
 public:
     explicit AddWindow(QWidget *parent = 0);
     ~AddWindow();
-    int key;
+    QString key;
     QString value;
 
     

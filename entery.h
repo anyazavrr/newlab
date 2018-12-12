@@ -1,15 +1,19 @@
 #ifndef ENTERY_H
 #define ENTERY_H
 
-template <typename T>
+template <typename T , typename K>
 class entery
 {
-    int key;
+    K key;
     T value;
 public:
-    entery(const T &examp, int key2);
+    entery(const T &examp, K key2);
     T getvalue() const;
-    int getkey() const;
+    K getkey() const;
+    bool operator ==( entery<T,K> &other)
+    {
+            return (key == other.key && value == other.value);
+    }
 };
 
 #endif // ENTERY_H

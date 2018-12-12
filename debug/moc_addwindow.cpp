@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'addwindow.h'
 **
-** Created: Mon 10. Dec 11:39:23 2018
+** Created: Wed 12. Dec 10:18:59 2018
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!
