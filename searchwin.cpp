@@ -6,6 +6,7 @@ SearchWin::SearchWin(QWidget *parent) :
     ui(new Ui::SearchWin)
 {
     ui->setupUi(this);
+    key = "";
 }
 
 SearchWin::~SearchWin()

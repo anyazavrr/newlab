@@ -6,9 +6,21 @@ InputWin::InputWin(QWidget *parent) :
     ui(new Ui::InputWin)
 {
     ui->setupUi(this);
+    filename = "";
 }
 
 InputWin::~InputWin()
 {
     delete ui;
+}
+
+void InputWin::on_pushButton_2_clicked()
+{
+    close();
+}
+
+void InputWin::on_pushButton_clicked()
+{
+    filename = ui->lineEdit->text();
+    close();
 }

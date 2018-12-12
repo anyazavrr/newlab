@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\entery.o
+./release\table.o
+./release\addwindow.o
+./release\searchwin.o
+./release\inputwin.o
+./release\moc_mainwindow.o
+./release\moc_addwindow.o
+./release\moc_searchwin.o
+./release\moc_inputwin.o
+);

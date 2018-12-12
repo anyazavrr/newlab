@@ -6,6 +6,8 @@ AddWindow::AddWindow(QWidget *parent) :
     ui(new Ui::AddWindow)
 {
     ui->setupUi(this);
+    key = "";
+    value = "";
 }
 
 AddWindow::~AddWindow()

@@ -14,7 +14,13 @@ class InputWin : public QDialog
 public:
     explicit InputWin(QWidget *parent = 0);
     ~InputWin();
+    QString filename;
     
+private slots:
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_clicked();
+
 private:
     Ui::InputWin *ui;
 };
