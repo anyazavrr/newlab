@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed 12. Dec 10:32:02 2018
+** Created: Thu 13. Dec 23:28:19 2018
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -14,6 +14,7 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
+#include <QtGui/QGridLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QMainWindow>
@@ -37,19 +38,18 @@ public:
     QAction *action_4;
     QAction *action_5;
     QWidget *centralWidget;
+    QGridLayout *gridLayout;
+    QLabel *label;
     QTableWidget *tableWidget;
-    QPushButton *create_prot;
-    QPushButton *search;
-    QLabel *label_4;
-    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QLabel *label_3;
     QLabel *number_of_objects;
-    QWidget *layoutWidget1;
+    QPushButton *search;
     QVBoxLayout *verticalLayout_2;
     QLabel *key;
     QLabel *acid;
-    QLabel *label;
+    QPushButton *create_prot;
+    QLabel *label_2;
     QMenuBar *menuBar;
     QMenu *menu;
     QToolBar *mainToolBar;
@@ -59,7 +59,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(472, 521);
+        MainWindow->resize(445, 513);
         action = new QAction(MainWindow);
         action->setObjectName(QString::fromUtf8("action"));
         action_2 = new QAction(MainWindow);
@@ -72,6 +72,16 @@ public:
         action_5->setObjectName(QString::fromUtf8("action_5"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        gridLayout = new QGridLayout(centralWidget);
+        gridLayout->setSpacing(6);
+        gridLayout->setContentsMargins(11, 11, 11, 11);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        label = new QLabel(centralWidget);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setStyleSheet(QString::fromUtf8("font: 25 8pt \"Microsoft JhengHei Light\";"));
+
+        gridLayout->addWidget(label, 0, 0, 1, 1);
+
         tableWidget = new QTableWidget(centralWidget);
         if (tableWidget->columnCount() < 2)
             tableWidget->setColumnCount(2);
@@ -280,63 +290,63 @@ public:
         QTableWidgetItem *__qtablewidgetitem100 = new QTableWidgetItem();
         tableWidget->setVerticalHeaderItem(98, __qtablewidgetitem100);
         tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
-        tableWidget->setGeometry(QRect(30, 60, 261, 361));
-        create_prot = new QPushButton(centralWidget);
-        create_prot->setObjectName(QString::fromUtf8("create_prot"));
-        create_prot->setGeometry(QRect(320, 260, 121, 28));
-        search = new QPushButton(centralWidget);
-        search->setObjectName(QString::fromUtf8("search"));
-        search->setGeometry(QRect(320, 140, 121, 28));
-        label_4 = new QLabel(centralWidget);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(1460, 640, 53, 16));
-        layoutWidget = new QWidget(centralWidget);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(320, 60, 121, 51));
-        verticalLayout = new QVBoxLayout(layoutWidget);
+
+        gridLayout->addWidget(tableWidget, 1, 0, 5, 1);
+
+        verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(6);
-        verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        label_3 = new QLabel(layoutWidget);
+        label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
         verticalLayout->addWidget(label_3);
 
-        number_of_objects = new QLabel(layoutWidget);
+        number_of_objects = new QLabel(centralWidget);
         number_of_objects->setObjectName(QString::fromUtf8("number_of_objects"));
         number_of_objects->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
 
         verticalLayout->addWidget(number_of_objects);
 
-        layoutWidget1 = new QWidget(centralWidget);
-        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(320, 180, 121, 51));
-        verticalLayout_2 = new QVBoxLayout(layoutWidget1);
+
+        gridLayout->addLayout(verticalLayout, 1, 1, 1, 1);
+
+        search = new QPushButton(centralWidget);
+        search->setObjectName(QString::fromUtf8("search"));
+
+        gridLayout->addWidget(search, 2, 1, 1, 1);
+
+        verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        key = new QLabel(layoutWidget1);
+        key = new QLabel(centralWidget);
         key->setObjectName(QString::fromUtf8("key"));
         key->setStyleSheet(QString::fromUtf8("background-color: rgb(238, 217, 255);"));
 
         verticalLayout_2->addWidget(key);
 
-        acid = new QLabel(layoutWidget1);
+        acid = new QLabel(centralWidget);
         acid->setObjectName(QString::fromUtf8("acid"));
         acid->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
 
         verticalLayout_2->addWidget(acid);
 
-        label = new QLabel(centralWidget);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(30, 20, 221, 17));
-        label->setStyleSheet(QString::fromUtf8("font: 25 8pt \"Microsoft JhengHei Light\";"));
+
+        gridLayout->addLayout(verticalLayout_2, 3, 1, 1, 1);
+
+        create_prot = new QPushButton(centralWidget);
+        create_prot->setObjectName(QString::fromUtf8("create_prot"));
+
+        gridLayout->addWidget(create_prot, 4, 1, 1, 1);
+
+        label_2 = new QLabel(centralWidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        gridLayout->addWidget(label_2, 5, 1, 1, 1);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 472, 25));
+        menuBar->setGeometry(QRect(0, 0, 445, 25));
         menu = new QMenu(menuBar);
         menu->setObjectName(QString::fromUtf8("menu"));
         MainWindow->setMenuBar(menuBar);
@@ -367,6 +377,7 @@ public:
         action_3->setText(QApplication::translate("MainWindow", "\320\241\320\276\321\205\321\200\320\260\320\275\320\270\321\202\321\214 \320\262 \321\204\320\260\320\271\320\273", 0, QApplication::UnicodeUTF8));
         action_4->setText(QApplication::translate("MainWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214 \321\215\320\273\320\265\320\274\320\265\320\275\321\202", 0, QApplication::UnicodeUTF8));
         action_5->setText(QApplication::translate("MainWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214 \320\262\321\201\320\265 \321\215\320\273\320\265\320\274\320\265\320\275\321\202\321\213", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("MainWindow", "\320\242\320\260\320\261\320\273\320\270\321\206\320\260 \321\201\320\276\320\276\321\202\320\262\320\265\321\202\321\201\321\202\320\262\320\270\321\217", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "key", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
@@ -569,14 +580,13 @@ public:
         ___qtablewidgetitem99->setText(QApplication::translate("MainWindow", "98", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem100 = tableWidget->verticalHeaderItem(98);
         ___qtablewidgetitem100->setText(QApplication::translate("MainWindow", "99", 0, QApplication::UnicodeUTF8));
-        create_prot->setText(QApplication::translate("MainWindow", "\320\241\320\276\320\267\320\264\320\260\321\202\321\214 \320\261\320\265\320\273\320\276\320\272", 0, QApplication::UnicodeUTF8));
-        search->setText(QApplication::translate("MainWindow", "\320\237\320\276\320\270\321\201\320\272 \320\277\320\276 \320\272\320\273\321\216\321\207\321\203", 0, QApplication::UnicodeUTF8));
-        label_4->setText(QApplication::translate("MainWindow", "TextLabel", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("MainWindow", "\320\247\320\270\321\201\320\273\320\276 \320\276\320\261\321\212\320\265\320\272\321\202\320\276\320\262", 0, QApplication::UnicodeUTF8));
         number_of_objects->setText(QString());
+        search->setText(QApplication::translate("MainWindow", "\320\237\320\276\320\270\321\201\320\272 \320\277\320\276 \320\272\320\273\321\216\321\207\321\203", 0, QApplication::UnicodeUTF8));
         key->setText(QString());
         acid->setText(QString());
-        label->setText(QApplication::translate("MainWindow", "\320\242\320\260\320\261\320\273\320\270\321\206\320\260 \321\201\320\276\320\276\321\202\320\262\320\265\321\202\321\201\321\202\320\262\320\270\321\217", 0, QApplication::UnicodeUTF8));
+        create_prot->setText(QApplication::translate("MainWindow", "\320\241\320\276\320\267\320\264\320\260\321\202\321\214 \320\261\320\265\320\273\320\276\320\272", 0, QApplication::UnicodeUTF8));
+        label_2->setText(QString());
         menu->setTitle(QApplication::translate("MainWindow", "\320\242\320\260\320\261\320\273\320\270\321\206\320\260", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

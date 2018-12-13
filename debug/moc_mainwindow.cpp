@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Thu 13. Dec 00:33:58 2018
+** Created: Thu 13. Dec 00:54:06 2018
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        5,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -35,6 +35,8 @@ static const uint qt_meta_data_MainWindow[] = {
       34,   11,   11,   11, 0x08,
       54,   11,   11,   11, 0x08,
       78,   11,   11,   11, 0x08,
+     102,   11,   11,   11, 0x08,
+     127,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -43,6 +45,8 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "MainWindow\0\0on_action_triggered()\0"
     "on_search_clicked()\0on_action_2_triggered()\0"
     "on_action_3_triggered()\0"
+    "on_create_prot_clicked()\0"
+    "on_action_5_triggered()\0"
 };
 
 const QMetaObject MainWindow::staticMetaObject = {
@@ -78,9 +82,11 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 1: on_search_clicked(); break;
         case 2: on_action_2_triggered(); break;
         case 3: on_action_3_triggered(); break;
+        case 4: on_create_prot_clicked(); break;
+        case 5: on_action_5_triggered(); break;
         default: ;
         }
-        _id -= 4;
+        _id -= 6;
     }
     return _id;
 }

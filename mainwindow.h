@@ -29,6 +29,10 @@ private slots:
     void on_action_3_triggered();
 
 
+    void on_create_prot_clicked();
+
+    void on_action_5_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -90,7 +90,7 @@ void MainWindow::on_action_2_triggered()
 }
 
 
-void MainWindow::on_action_3_triggered()//save to file
+void MainWindow::on_action_3_triggered()
 {
     InputWin win;
     win.setModal(true);
@@ -108,3 +108,34 @@ void MainWindow::on_action_3_triggered()//save to file
 
 
 
+
+void MainWindow::on_create_prot_clicked()//not work
+{
+    Iterator<char,string> iter = mytable.getbegin_iter();
+    QString s;
+    int i = 0;
+    do
+    {
+        s = s + QChar(iter.getvalue());
+        if(iter == mytable.getend_iter()) i=1;
+        ++iter;
+    }while(i!=1);
+    ui->label_2->setText(s);
+}
+
+void MainWindow::on_action_5_triggered()//не робит
+{
+    mytable.deleteall();
+    column = 0;
+    QTableWidgetItem *item = new QTableWidgetItem();
+    item->setText("");
+    while(row>=0)
+    {
+        ui->tableWidget->setItem(row, column, item);
+        column++;
+        ui->tableWidget->setItem(row, column, item);
+        column--;
+        row--;
+    }
+
+}
