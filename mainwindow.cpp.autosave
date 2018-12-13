@@ -153,7 +153,6 @@ void MainWindow::on_action_4_triggered()//del 1 not work
         do
         {
             QTableWidgetItem *item = new QTableWidgetItem();
-            //QByteArray ba1 = iter.getkey().toLatin1();
             const char *c1 = iter.getkey().c_str();
             item->setText(QString::fromUtf8(c1));
             ui->tableWidget->setItem(row, column, item);
