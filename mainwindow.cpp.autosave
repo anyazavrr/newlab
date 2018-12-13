@@ -123,14 +123,12 @@ void MainWindow::on_create_prot_clicked()// work
     ui->label_2->setText(s);
 }
 
-void MainWindow::on_action_5_triggered()//םו נמבטע
+void MainWindow::on_action_5_triggered()//םנמבטע
 {
     mytable.deleteall();
+    ui->tableWidget->clearContents();
+    row = 0;
     column = 0;
-    QTableWidgetItem *item = new QTableWidgetItem();
-    item->setText("");
-
-        ui->tableWidget->clearContents();
 
 
 

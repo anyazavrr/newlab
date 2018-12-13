@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>445</width>
-    <height>513</height>
+    <width>408</width>
+    <height>516</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,18 +15,80 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QLabel" name="label">
-      <property name="styleSheet">
-       <string notr="true">font: 25 8pt &quot;Microsoft JhengHei Light&quot;;</string>
-      </property>
+    <item row="1" column="1">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Число объектов</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="number_of_objects">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="1">
+     <widget class="QPushButton" name="search">
       <property name="text">
-       <string>Таблица соответствия</string>
+       <string>Поиск по ключу</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QLabel" name="key">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(238, 217, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="acid">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="4" column="1">
+     <widget class="QPushButton" name="create_prot">
+      <property name="text">
+       <string>Создать белок</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </item>
     <item row="1" column="0" rowspan="5">
      <widget class="QTableWidget" name="tableWidget">
+      <property name="maximumSize">
+       <size>
+        <width>256</width>
+        <height>16777215</height>
+       </size>
+      </property>
       <row>
        <property name="text">
         <string>1</string>
@@ -534,72 +596,6 @@
       </column>
      </widget>
     </item>
-    <item row="1" column="1">
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>Число объектов</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="number_of_objects">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="2" column="1">
-     <widget class="QPushButton" name="search">
-      <property name="text">
-       <string>Поиск по ключу</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <widget class="QLabel" name="key">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(238, 217, 255);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="acid">
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(255, 255, 255);</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="4" column="1">
-     <widget class="QPushButton" name="create_prot">
-      <property name="text">
-       <string>Создать белок</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="1">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -607,7 +603,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>445</width>
+     <width>408</width>
      <height>25</height>
     </rect>
    </property>
