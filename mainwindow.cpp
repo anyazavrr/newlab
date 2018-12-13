@@ -19,7 +19,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_action_triggered()
+void MainWindow::on_action_triggered()//add
 {
     AddWindow win;
     win.setModal(true);
@@ -53,7 +53,7 @@ void MainWindow::on_search_clicked()
     }
 }
 
-void MainWindow::on_action_2_triggered()
+void MainWindow::on_action_2_triggered()//read from file
 {
 
 
@@ -68,12 +68,13 @@ void MainWindow::on_action_2_triggered()
         const char *c = ba.data();
         file.open(c);
         file>>mytable;
+        int i = 0;
         Iterator<char,string> iter = mytable.getbegin_iter();
-        while(!(iter == mytable.getend_iter()))
+        do
         {
             QTableWidgetItem *item = new QTableWidgetItem();
-            QByteArray ba1 = win.filename.toLatin1();
-            const char *c1 = ba1.data();
+            //QByteArray ba1 = iter.getkey().toLatin1();
+            const char *c1 = iter.getkey().c_str();
             item->setText(QString::fromUtf8(c1));
             ui->tableWidget->setItem(row, column, item);
             column++;
@@ -82,7 +83,9 @@ void MainWindow::on_action_2_triggered()
             ui->tableWidget->setItem(row, column, item2);
             column--;
             row++;
-        }
+            if(iter == mytable.getend_iter()) i=1;
+            ++iter;
+        }while(i!=1);
         ui->number_of_objects->setText(QString::number(mytable.count()));
         file.close();
     }
@@ -90,7 +93,7 @@ void MainWindow::on_action_2_triggered()
 }
 
 
-void MainWindow::on_action_3_triggered()
+void MainWindow::on_action_3_triggered()//save to file
 {
     InputWin win;
     win.setModal(true);
@@ -123,15 +126,36 @@ void MainWindow::on_create_prot_clicked()// work
     ui->label_2->setText(s);
 }
 
-void MainWindow::on_action_5_triggered()//не робит
+void MainWindow::on_action_5_triggered()//del all
 {
     mytable.deleteall();
+    ui->tableWidget->clearContents();
+    row = 0;
     column = 0;
-    QTableWidgetItem *item = new QTableWidgetItem();
-    item->setText("");
-
-        ui->tableWidget->clearContents();
 
 
 
+}
+
+void MainWindow::on_action_4_triggered()//del 1 not work
+{
+    SearchWin win;
+    win.setModal(true);
+    win.exec();
+    if (win.key!="")
+    {
+        int i = row;
+        for(;i>=0;i--)
+        {
+
+            if(ui->tableWidget->takeItem(i,0)->text() == win.key)
+            {
+                SearchWin win3;
+                win3.setModal(true);
+                win3.exec();
+                ui->tableWidget->takeItem(i,0)->setText("");
+            }
+
+        }
+    }
 }

@@ -39,7 +39,6 @@ public:
     {
         Iterator<T,K> it= examp.getbegin_iter() ;
         int k = examp.count();
-        //cout<<"k= "<<k<<"\n";
         int i;
         for(i = 0; i<k; ++it)
         {
