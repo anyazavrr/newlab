@@ -13,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     row = 0;
     column = 0;
+    ui->delete_all->setEnabled(false);
+    ui->delete_key->setEnabled(false);
 }
 
 MainWindow::~MainWindow()
@@ -38,6 +40,8 @@ void MainWindow::on_adding_triggered()//add
         column--;
         row++;
         ui->number_of_objects->setText(QString::number(mytable.count()));
+        ui->delete_all->setEnabled(true);
+        ui->delete_key->setEnabled(true);
     }
 }
 
@@ -88,12 +92,14 @@ void MainWindow::on_loading_triggered()//read from file
         }while(i!=1);
         ui->number_of_objects->setText(QString::number(mytable.count()));
         file.close();
+        ui->delete_all->setEnabled(true);
+        ui->delete_key->setEnabled(true);
     }
 
 }
 
 
-void MainWindow::on_saving_triggered()//save to file
+void MainWindow::on_saving_triggered() //const
 {
     InputWin win;
     win.setModal(true);
@@ -144,6 +150,8 @@ void MainWindow::on_delete_all_triggered()//del all
     row = 0;
     column = 0;
     ui->number_of_objects->setText("0");
+    ui->delete_all->setEnabled(false);
+    ui->delete_key->setEnabled(false);
 }
 
 void MainWindow::on_delete_key_triggered()//del 1
@@ -176,6 +184,11 @@ void MainWindow::on_delete_key_triggered()//del 1
                 if(iter == mytable.getend_iter()) i=1;
                 ++iter;
             }while(i!=1);
+        }
+        else
+        {
+            ui->delete_all->setEnabled(false);
+            ui->delete_key->setEnabled(false);
         }
         ui->number_of_objects->setText(QString::number(mytable.count()));
     }

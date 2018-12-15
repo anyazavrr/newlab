@@ -35,7 +35,7 @@ public:
     friend class Iterator<T,K>;
     bool operator ==( table<T,K> &other);
     T* operator [](K key);
-    friend ofstream &operator<<(ofstream &ofs,  table<T,K> &examp)
+    friend ofstream &operator<<(ofstream &ofs,  table<T,K> &examp) //const non-member cannot be cv-qualifier
     {
         Iterator<T,K> it= examp.getbegin_iter() ;
         int k = examp.count();
