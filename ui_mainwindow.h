@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Fri 14. Dec 22:08:42 2018
+** Created: Sat 15. Dec 18:23:42 2018
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -32,11 +32,11 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QAction *action;
-    QAction *action_2;
-    QAction *action_3;
-    QAction *action_4;
-    QAction *action_5;
+    QAction *adding;
+    QAction *loading;
+    QAction *saving;
+    QAction *delete_key;
+    QAction *delete_all;
     QWidget *centralWidget;
     QGridLayout *gridLayout;
     QVBoxLayout *verticalLayout;
@@ -59,16 +59,16 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(408, 516);
-        action = new QAction(MainWindow);
-        action->setObjectName(QString::fromUtf8("action"));
-        action_2 = new QAction(MainWindow);
-        action_2->setObjectName(QString::fromUtf8("action_2"));
-        action_3 = new QAction(MainWindow);
-        action_3->setObjectName(QString::fromUtf8("action_3"));
-        action_4 = new QAction(MainWindow);
-        action_4->setObjectName(QString::fromUtf8("action_4"));
-        action_5 = new QAction(MainWindow);
-        action_5->setObjectName(QString::fromUtf8("action_5"));
+        adding = new QAction(MainWindow);
+        adding->setObjectName(QString::fromUtf8("adding"));
+        loading = new QAction(MainWindow);
+        loading->setObjectName(QString::fromUtf8("loading"));
+        saving = new QAction(MainWindow);
+        saving->setObjectName(QString::fromUtf8("saving"));
+        delete_key = new QAction(MainWindow);
+        delete_key->setObjectName(QString::fromUtf8("delete_key"));
+        delete_all = new QAction(MainWindow);
+        delete_all->setObjectName(QString::fromUtf8("delete_all"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -352,11 +352,11 @@ public:
         MainWindow->setStatusBar(statusBar);
 
         menuBar->addAction(menu->menuAction());
-        menu->addAction(action);
-        menu->addAction(action_2);
-        menu->addAction(action_3);
-        menu->addAction(action_4);
-        menu->addAction(action_5);
+        menu->addAction(adding);
+        menu->addAction(loading);
+        menu->addAction(saving);
+        menu->addAction(delete_key);
+        menu->addAction(delete_all);
 
         retranslateUi(MainWindow);
 
@@ -366,11 +366,11 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
-        action->setText(QApplication::translate("MainWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214 \321\215\320\273\320\265\320\274\320\265\320\275\321\202", 0, QApplication::UnicodeUTF8));
-        action_2->setText(QApplication::translate("MainWindow", "\320\227\320\260\320\263\321\200\321\203\320\267\320\270\321\202\321\214 \320\270\320\267 \321\204\320\260\320\271\320\273\320\260", 0, QApplication::UnicodeUTF8));
-        action_3->setText(QApplication::translate("MainWindow", "\320\241\320\276\321\205\321\200\320\260\320\275\320\270\321\202\321\214 \320\262 \321\204\320\260\320\271\320\273", 0, QApplication::UnicodeUTF8));
-        action_4->setText(QApplication::translate("MainWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214 \321\215\320\273\320\265\320\274\320\265\320\275\321\202", 0, QApplication::UnicodeUTF8));
-        action_5->setText(QApplication::translate("MainWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214 \320\262\321\201\320\265 \321\215\320\273\320\265\320\274\320\265\320\275\321\202\321\213", 0, QApplication::UnicodeUTF8));
+        adding->setText(QApplication::translate("MainWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214 \321\215\320\273\320\265\320\274\320\265\320\275\321\202", 0, QApplication::UnicodeUTF8));
+        loading->setText(QApplication::translate("MainWindow", "\320\227\320\260\320\263\321\200\321\203\320\267\320\270\321\202\321\214 \320\270\320\267 \321\204\320\260\320\271\320\273\320\260", 0, QApplication::UnicodeUTF8));
+        saving->setText(QApplication::translate("MainWindow", "\320\241\320\276\321\205\321\200\320\260\320\275\320\270\321\202\321\214 \320\262 \321\204\320\260\320\271\320\273", 0, QApplication::UnicodeUTF8));
+        delete_key->setText(QApplication::translate("MainWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214 \321\215\320\273\320\265\320\274\320\265\320\275\321\202", 0, QApplication::UnicodeUTF8));
+        delete_all->setText(QApplication::translate("MainWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214 \320\262\321\201\320\265 \321\215\320\273\320\265\320\274\320\265\320\275\321\202\321\213", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("MainWindow", "\320\247\320\270\321\201\320\273\320\276 \320\276\320\261\321\212\320\265\320\272\321\202\320\276\320\262", 0, QApplication::UnicodeUTF8));
         number_of_objects->setText(QString());
         search->setText(QApplication::translate("MainWindow", "\320\237\320\276\320\270\321\201\320\272 \320\277\320\276 \320\272\320\273\321\216\321\207\321\203", 0, QApplication::UnicodeUTF8));

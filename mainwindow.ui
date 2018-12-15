@@ -611,11 +611,11 @@
     <property name="title">
      <string>Таблица</string>
     </property>
-    <addaction name="action"/>
-    <addaction name="action_2"/>
-    <addaction name="action_3"/>
-    <addaction name="action_4"/>
-    <addaction name="action_5"/>
+    <addaction name="adding"/>
+    <addaction name="loading"/>
+    <addaction name="saving"/>
+    <addaction name="delete_key"/>
+    <addaction name="delete_all"/>
    </widget>
    <addaction name="menu"/>
   </widget>
@@ -628,27 +628,27 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="action">
+  <action name="adding">
    <property name="text">
     <string>Добавить элемент</string>
    </property>
   </action>
-  <action name="action_2">
+  <action name="loading">
    <property name="text">
     <string>Загрузить из файла</string>
    </property>
   </action>
-  <action name="action_3">
+  <action name="saving">
    <property name="text">
     <string>Сохранить в файл</string>
    </property>
   </action>
-  <action name="action_4">
+  <action name="delete_key">
    <property name="text">
     <string>Удалить элемент</string>
    </property>
   </action>
-  <action name="action_5">
+  <action name="delete_all">
    <property name="text">
     <string>Удалить все элементы</string>
    </property>

@@ -20,20 +20,20 @@ public:
     int column;
     
 private slots:
-    void on_action_triggered();
+    void on_adding_triggered();
 
     void on_search_clicked();
 
-    void on_action_2_triggered();
+    void on_loading_triggered();
 
-    void on_action_3_triggered();
+    void on_saving_triggered();
 
 
     void on_create_prot_clicked();
 
-    void on_action_5_triggered();
+    void on_delete_all_triggered();
 
-    void on_action_4_triggered();
+    void on_delete_key_triggered();
 
 private:
     Ui::MainWindow *ui;

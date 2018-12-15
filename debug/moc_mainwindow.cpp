@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Sat 15. Dec 17:50:18 2018
+** Created: Sat 15. Dec 18:23:45 2018
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.7.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -34,20 +34,20 @@ static const uint qt_meta_data_MainWindow[] = {
       12,   11,   11,   11, 0x08,
       34,   11,   11,   11, 0x08,
       54,   11,   11,   11, 0x08,
-      78,   11,   11,   11, 0x08,
-     102,   11,   11,   11, 0x08,
-     127,   11,   11,   11, 0x08,
-     151,   11,   11,   11, 0x08,
+      77,   11,   11,   11, 0x08,
+      99,   11,   11,   11, 0x08,
+     124,   11,   11,   11, 0x08,
+     150,   11,   11,   11, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MainWindow[] = {
-    "MainWindow\0\0on_action_triggered()\0"
-    "on_search_clicked()\0on_action_2_triggered()\0"
-    "on_action_3_triggered()\0"
-    "on_create_prot_clicked()\0"
-    "on_action_5_triggered()\0on_action_4_triggered()\0"
+    "MainWindow\0\0on_adding_triggered()\0"
+    "on_search_clicked()\0on_loading_triggered()\0"
+    "on_saving_triggered()\0on_create_prot_clicked()\0"
+    "on_delete_all_triggered()\0"
+    "on_delete_key_triggered()\0"
 };
 
 const QMetaObject MainWindow::staticMetaObject = {
@@ -79,13 +79,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: on_action_triggered(); break;
+        case 0: on_adding_triggered(); break;
         case 1: on_search_clicked(); break;
-        case 2: on_action_2_triggered(); break;
-        case 3: on_action_3_triggered(); break;
+        case 2: on_loading_triggered(); break;
+        case 3: on_saving_triggered(); break;
         case 4: on_create_prot_clicked(); break;
-        case 5: on_action_5_triggered(); break;
-        case 6: on_action_4_triggered(); break;
+        case 5: on_delete_all_triggered(); break;
+        case 6: on_delete_key_triggered(); break;
         default: ;
         }
         _id -= 7;

@@ -20,7 +20,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_action_triggered()//add
+void MainWindow::on_adding_triggered()//add
 {
     AddWindow win;
     win.setModal(true);
@@ -54,7 +54,7 @@ void MainWindow::on_search_clicked()
     }
 }
 
-void MainWindow::on_action_2_triggered()//read from file
+void MainWindow::on_loading_triggered()//read from file
 {
 
 
@@ -93,7 +93,7 @@ void MainWindow::on_action_2_triggered()//read from file
 }
 
 
-void MainWindow::on_action_3_triggered()//save to file
+void MainWindow::on_saving_triggered()//save to file
 {
     InputWin win;
     win.setModal(true);
@@ -112,7 +112,7 @@ void MainWindow::on_action_3_triggered()//save to file
 
 
 
-void MainWindow::on_create_prot_clicked()//
+void MainWindow::on_create_prot_clicked()
 {
     Protein win;
     win.setModal(true);
@@ -137,18 +137,16 @@ void MainWindow::on_create_prot_clicked()//
     }
 }
 
-void MainWindow::on_action_5_triggered()//del all
+void MainWindow::on_delete_all_triggered()//del all
 {
     mytable.delete_all();
     ui->tableWidget->clearContents();
     row = 0;
     column = 0;
-
-
-
+    ui->number_of_objects->setText("0");
 }
 
-void MainWindow::on_action_4_triggered()//del 1 not work
+void MainWindow::on_delete_key_triggered()//del 1
 {
     SearchWin win;
     win.setModal(true);
