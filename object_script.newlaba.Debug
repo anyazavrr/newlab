@@ -6,8 +6,10 @@ INPUT(
 ./debug\addwindow.o
 ./debug\searchwin.o
 ./debug\inputwin.o
+./debug\protein.o
 ./debug\moc_mainwindow.o
 ./debug\moc_addwindow.o
 ./debug\moc_searchwin.o
 ./debug\moc_inputwin.o
+./debug\moc_protein.o
 );

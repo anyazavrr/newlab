@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu 13. Dec 23:42:41 2018
+** Created: Fri 14. Dec 22:08:42 2018
 **      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -47,7 +47,7 @@ public:
     QLabel *key;
     QLabel *acid;
     QPushButton *create_prot;
-    QLabel *label_2;
+    QLabel *protein;
     QTableWidget *tableWidget;
     QMenuBar *menuBar;
     QMenu *menu;
@@ -120,10 +120,10 @@ public:
 
         gridLayout->addWidget(create_prot, 4, 1, 1, 1);
 
-        label_2 = new QLabel(centralWidget);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
+        protein = new QLabel(centralWidget);
+        protein->setObjectName(QString::fromUtf8("protein"));
 
-        gridLayout->addWidget(label_2, 5, 1, 1, 1);
+        gridLayout->addWidget(protein, 5, 1, 1, 1);
 
         tableWidget = new QTableWidget(centralWidget);
         if (tableWidget->columnCount() < 2)
@@ -377,7 +377,7 @@ public:
         key->setText(QString());
         acid->setText(QString());
         create_prot->setText(QApplication::translate("MainWindow", "\320\241\320\276\320\267\320\264\320\260\321\202\321\214 \320\261\320\265\320\273\320\276\320\272", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QString());
+        protein->setText(QString());
         QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "key", 0, QApplication::UnicodeUTF8));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);

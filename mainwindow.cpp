@@ -4,7 +4,8 @@
 #include "searchwin.h"
 #include "inputwin.h"
 #include <fstream>
-
+#include "protein.h"
+#include <QString>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -112,18 +113,29 @@ void MainWindow::on_action_3_triggered()//save to file
 
 
 
-void MainWindow::on_create_prot_clicked()// work
+void MainWindow::on_create_prot_clicked()//
 {
-    Iterator<char,string> iter = mytable.getbegin_iter();
-    QString s;
-    int i = 0;
-    do
+    Protein win;
+    win.setModal(true);
+    win.exec();
+    if (win.code!="")
     {
-        s = s + QChar(iter.getvalue());
-        if(iter == mytable.getend_iter()) i=1;
-        ++iter;
-    }while(i!=1);
-    ui->label_2->setText(s);
+        std::string str = win.code.toStdString();
+        const char* k = str.c_str();
+        int i;
+        int d = str.length();
+        std::string acid = "";
+        for(i=0;i<d;i = i+3)
+        {
+            std::string s = str.substr(i,3);
+            if(mytable.check_key(s)==true)
+            {
+                acid = acid + *(mytable[s]);
+            }
+        }
+        const char *c1 = acid.c_str();
+        ui->protein->setText(QString::fromUtf8(c1));
+    }
 }
 
 void MainWindow::on_action_5_triggered()//del all

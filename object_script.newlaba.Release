@@ -6,8 +6,10 @@ INPUT(
 ./release\addwindow.o
 ./release\searchwin.o
 ./release\inputwin.o
+./release\protein.o
 ./release\moc_mainwindow.o
 ./release\moc_addwindow.o
 ./release\moc_searchwin.o
 ./release\moc_inputwin.o
+./release\moc_protein.o
 );

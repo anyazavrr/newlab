@@ -16,16 +16,19 @@ SOURCES += main.cpp\
     table.cpp \
     addwindow.cpp \
     searchwin.cpp \
-    inputwin.cpp
+    inputwin.cpp \
+    protein.cpp
 
 HEADERS  += mainwindow.h \
     entery.h \
     table.h \
     addwindow.h \
     searchwin.h \
-    inputwin.h
+    inputwin.h \
+    protein.h
 
 FORMS    += mainwindow.ui \
     addwindow.ui \
     searchwin.ui \
-    inputwin.ui
+    inputwin.ui \
+    protein.ui
