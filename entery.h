@@ -8,8 +8,8 @@ class entery
     T value;
 public:
     entery(const T &examp, K key2);
-    T getvalue() const;
-    K getkey() const;
+    T get_value() const;
+    K get_key() const;
     bool operator ==( entery<T,K> &other)
     {
             return (key == other.key && value == other.value);

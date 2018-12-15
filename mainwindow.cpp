@@ -63,7 +63,7 @@ void MainWindow::on_action_2_triggered()//read from file
     win.exec();
     if(win.filename!="")
     {
-        mytable.deleteall();
+        mytable.delete_all();
         ifstream file;
         QByteArray ba = win.filename.toLatin1();
         const char *c = ba.data();
@@ -74,13 +74,12 @@ void MainWindow::on_action_2_triggered()//read from file
         do
         {
             QTableWidgetItem *item = new QTableWidgetItem();
-            //QByteArray ba1 = iter.getkey().toLatin1();
-            const char *c1 = iter.getkey().c_str();
+            const char *c1 = iter.get_key().c_str();
             item->setText(QString::fromUtf8(c1));
             ui->tableWidget->setItem(row, column, item);
             column++;
             QTableWidgetItem *item2 = new QTableWidgetItem();
-            item2->setText(QChar(iter.getvalue()));
+            item2->setText(QChar(iter.get_value()));
             ui->tableWidget->setItem(row, column, item2);
             column--;
             row++;
@@ -125,7 +124,7 @@ void MainWindow::on_create_prot_clicked()//
         int i;
         int d = str.length();
         std::string acid = "";
-        for(i=0;i<d;i = i+3)
+        for(i=0;i+2<d;i = i+3)
         {
             std::string s = str.substr(i,3);
             if(mytable.check_key(s)==true)
@@ -140,7 +139,7 @@ void MainWindow::on_create_prot_clicked()//
 
 void MainWindow::on_action_5_triggered()//del all
 {
-    mytable.deleteall();
+    mytable.delete_all();
     ui->tableWidget->clearContents();
     row = 0;
     column = 0;
@@ -156,28 +155,30 @@ void MainWindow::on_action_4_triggered()//del 1 not work
     win.exec();
     if (win.key!="")
     {
-        mytable.deletekey(win.key.toStdString());
+        mytable.delete_key(win.key.toStdString());
         int i = 0;
         ui->tableWidget->clearContents();
         row = 0;
         column = 0;
-        Iterator<char,string> iter = mytable.getbegin_iter();
-        do
+        if(mytable.count()!=0)
         {
-            QTableWidgetItem *item = new QTableWidgetItem();
-            //QByteArray ba1 = iter.getkey().toLatin1();
-            const char *c1 = iter.getkey().c_str();
-            item->setText(QString::fromUtf8(c1));
-            ui->tableWidget->setItem(row, column, item);
-            column++;
-            QTableWidgetItem *item2 = new QTableWidgetItem();
-            item2->setText(QChar(iter.getvalue()));
-            ui->tableWidget->setItem(row, column, item2);
-            column--;
-            row++;
-            if(iter == mytable.getend_iter()) i=1;
-            ++iter;
-        }while(i!=1);
+            Iterator<char,string> iter = mytable.getbegin_iter();
+            do
+            {
+                QTableWidgetItem *item = new QTableWidgetItem();
+                const char *c1 = iter.get_key().c_str();
+                item->setText(QString::fromUtf8(c1));
+                ui->tableWidget->setItem(row, column, item);
+                column++;
+                QTableWidgetItem *item2 = new QTableWidgetItem();
+                item2->setText(QChar(iter.get_value()));
+                ui->tableWidget->setItem(row, column, item2);
+                column--;
+                row++;
+                if(iter == mytable.getend_iter()) i=1;
+                ++iter;
+            }while(i!=1);
+        }
         ui->number_of_objects->setText(QString::number(mytable.count()));
     }
 }

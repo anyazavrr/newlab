@@ -17,8 +17,8 @@ template <typename T, typename K>
 class table
 {
     entery<T,K>*  list[334];
-    T getvalue(int i) const;
-    K getkey(int i) const;
+    T get_value(int i) const;
+    K get_key(int i) const;
 public:
 
     table();
@@ -27,8 +27,8 @@ public:
     //private
     //
     bool check_key(K key) const;
-    void deletekey(K key);
-    void deleteall();
+    void delete_key(K key);
+    void delete_all();
     int count() const;
     Iterator<T,K> getbegin_iter();
     Iterator<T,K> getend_iter() ;
@@ -42,7 +42,7 @@ public:
         int i;
         for(i = 0; i<k; ++it)
         {
-            ofs << it.getkey() << " " << it.getvalue() << '\n';
+            ofs << it.get_key() << " " << it.get_value() << '\n';
             i++;
         }
         return ofs;
@@ -80,8 +80,8 @@ public:
         return (key == other.key);
     }
 
-    K getkey() const;
-    T getvalue() const;
+    K get_key() const;
+    T get_value() const;
     table<T,K>* get_table() const;
     friend class table<T,K>;
 

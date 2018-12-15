@@ -8,12 +8,12 @@ entery<T,K>::entery(const T &examp, K key2)
     key = key2;
 }
 template <typename T, typename K>
-T entery<T,K>::getvalue() const
+T entery<T,K>::get_value() const
 {
     return value;///some proplem with memory
 }
 template <typename T, typename K>
-K entery<T,K>::getkey() const
+K entery<T,K>::get_key() const
 {
     return key;
 }
