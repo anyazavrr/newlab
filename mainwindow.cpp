@@ -15,6 +15,9 @@ MainWindow::MainWindow(QWidget *parent) :
     column = 0;
     ui->delete_all->setEnabled(false);
     ui->delete_key->setEnabled(false);
+    ui->tableWidget->setRowCount(row);
+    ui->search->setEnabled(false);
+    ui->create_prot->setEnabled(false);
 }
 
 MainWindow::~MainWindow()
@@ -32,6 +35,7 @@ void MainWindow::on_adding_triggered()//add
         mytable.add(win.value.toStdString()[0], win.key.toStdString());
         QTableWidgetItem *item = new QTableWidgetItem();
         item->setText(win.key);
+        ui->tableWidget->setRowCount(row+1);
         ui->tableWidget->setItem(row, column, item);
         column++;
         QTableWidgetItem *item2 = new QTableWidgetItem();
@@ -42,6 +46,8 @@ void MainWindow::on_adding_triggered()//add
         ui->number_of_objects->setText(QString::number(mytable.count()));
         ui->delete_all->setEnabled(true);
         ui->delete_key->setEnabled(true);
+        ui->search->setEnabled(true);
+        ui->create_prot->setEnabled(true);
     }
 }
 
@@ -80,6 +86,7 @@ void MainWindow::on_loading_triggered()//read from file
             QTableWidgetItem *item = new QTableWidgetItem();
             const char *c1 = iter.get_key().c_str();
             item->setText(QString::fromUtf8(c1));
+            ui->tableWidget->setRowCount(row+1);
             ui->tableWidget->setItem(row, column, item);
             column++;
             QTableWidgetItem *item2 = new QTableWidgetItem();
@@ -94,6 +101,8 @@ void MainWindow::on_loading_triggered()//read from file
         file.close();
         ui->delete_all->setEnabled(true);
         ui->delete_key->setEnabled(true);
+        ui->search->setEnabled(true);
+        ui->create_prot->setEnabled(true);
     }
 
 }
@@ -152,6 +161,9 @@ void MainWindow::on_delete_all_triggered()//del all
     ui->number_of_objects->setText("0");
     ui->delete_all->setEnabled(false);
     ui->delete_key->setEnabled(false);
+    ui->search->setEnabled(false);
+    ui->create_prot->setEnabled(false);
+    ui->tableWidget->setRowCount(0);
 }
 
 void MainWindow::on_delete_key_triggered()//del 1
@@ -189,7 +201,10 @@ void MainWindow::on_delete_key_triggered()//del 1
         {
             ui->delete_all->setEnabled(false);
             ui->delete_key->setEnabled(false);
+            ui->search->setEnabled(false);
+            ui->create_prot->setEnabled(false);
         }
         ui->number_of_objects->setText(QString::number(mytable.count()));
+        ui->tableWidget->setRowCount(row);
     }
 }
